@@ -1,0 +1,73 @@
+Please correct the second photo/story section.
+
+You added the slider below the existing photo composition, but that is NOT what I want.
+
+I want the **CURRENT photo composition itself to become the slider**.
+
+Current static composition:
+
+* large `dance.png` image
+* small overlapping image on the right
+
+Please REMOVE that static composition completely and replace it in the SAME position with one slider.
+
+Requirements:
+
+1. Remove the small overlapping image completely.
+
+2. Replace the current large `dance.png` block with a slider occupying that exact area.
+
+3. `dance.png` should be the first slide.
+
+4. Add the other existing couple photos as additional slides.
+
+5. The slider must stay in the same visual position and approximately the same width as the current large photo.
+
+6. Mobile-first layout:
+
+   * width approximately `80–85vw`
+   * max width around `320px`
+   * portrait aspect ratio around `4 / 5`
+   * centered horizontally
+   * `object-cover`
+   * no layout jumping between slides
+
+7. Slider behavior:
+
+   * automatic image change
+   * smooth elegant fade transition
+   * swipe support on mobile
+   * no large arrows
+   * optional very small minimal dots below the image
+
+8. IMPORTANT: do NOT create another gallery or slider below this section.
+   There should be ONLY ONE slider, replacing the existing main + overlapping photo composition.
+
+9. Reposition the existing decorative floral/lace graphics around this slider:
+
+   * one decoration near the upper-left or upper edge of the slider
+   * another decoration near the lower-right or middle-lower edge
+   * they may partially overlap the photo frame
+   * they must not cover faces or important parts of the photos
+   * remove the current awkward clustering of decorations at the bottom-left
+
+10. Keep the existing ivory background and overall wedding style.
+
+11. Do NOT modify:
+
+* Intro
+* Hero
+* names
+* wedding date
+* typography
+* navigation
+* other sections
+
+Only modify this second photo/story section and any slider component directly needed for it.
+
+After fixing it, tell me:
+
+* which file contains the slider,
+* where the slide image list is defined,
+* which variable controls slider width/height,
+* and which values control the decorative positions.

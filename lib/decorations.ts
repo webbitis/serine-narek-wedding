@@ -1,0 +1,20 @@
+/** Decorative PNG assets under /public/decorations */
+export const DECORATIONS = {
+  pearlDrapes: "/images/pearl-drapes1.png",
+  bridalHeadpiece: "/decorations/bridal-headpiece.png",
+  floralLaceCorner: "/decorations/floral-lace-corner.png",
+  flowers: "/decorations/flowers.png",
+  ivoryPetals: "/decorations/ivory-petals.png",
+  laceFloralSide: "/decorations/lace-floral-side.png",
+  pearlButterfly: "/decorations/pearl-butterfly.png",
+  silkRibbon: "/images/silk-ribbon.png",
+  floatingPetals: "/images/floating-petals.png",
+  goldDividerOrnament: "/images/gold-divider-ornament.png",
+  goldDividerThin: "/images/ivory-rose-cluster.png",
+  goldSparkleWave: "/images/gold-sparkle-wave.png",
+  pearlFloralGarland: "/images/pearl-floral-garland.png",
+  ivoryRoseCluster: "/images/ivory-rose-cluster.png",
+  pearlDropsSet: "/images/pearl-drops-set.png",
+  pearlDropsSmall: "/images/pearl-drops-small.png",
+  goldPearlRibbon: "/images/gold-pearl-ribbon.png",
+} as const;

@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f2e8;
+  --background-alt: #fbf8f1;
+  --foreground: #3b3027;
+  --foreground-secondary: #675a4f;
+  --gold: #b79a63;
+  --gold-light: #c8ae78;
+  --pearl: #faf7f2;
+  --sage: #8b8c6a;
+  --warm-brown: #6b5344;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-pearl: var(--pearl);
+  --color-sage: var(--sage);
+  --font-serif: var(--font-noto-serif-armenian);
+  --font-sans: var(--font-noto-sans-armenian);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-sans-armenian), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 25%, transparent);
+  color: var(--foreground);
+}
+
+.font-serif {
+  font-family: var(--font-noto-serif-armenian), Georgia, serif;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--gold) 0%,
+    var(--gold-light) 50%,
+    var(--gold) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lace-line {
+  stroke: var(--gold);
+  stroke-width: 0.5;
+  fill: none;
+  opacity: 0.35;
+}
+
+.thin-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--gold) 40%, transparent) 20%,
+    color-mix(in srgb, var(--gold) 40%, transparent) 80%,
+    transparent
+  );
+}
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+  outline-offset: 2px;
+}
+
+@keyframes music-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(59, 48, 39, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(183, 154, 99, 0.28);
+  }
 }
