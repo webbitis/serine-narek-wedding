@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { FloatingPetals } from "@/components/decorations/FloatingPetals";
 import { PHOTO_STORY, type PhotoStoryAnimation } from "@/lib/images";
@@ -23,7 +23,6 @@ function StoryBlock({
 }: StoryBlockProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
-  const frameInView = useInView(ref, { once: true, amount: 0.15 });
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -126,48 +125,6 @@ function StoryBlock({
             {text}
           </motion.p>
         </div>
-      </div>
-    );
-  }
-
-  if (layout === "wide-cinematic") {
-    return (
-      <div ref={ref} className="relative w-full py-10">
-        <div className="relative w-full aspect-[16/11] overflow-hidden">
-          <motion.div
-            className="absolute inset-0 h-full w-full"
-            initial="hidden"
-            animate={frameInView ? "visible" : "hidden"}
-            variants={animProps[animation]}
-            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div
-              className="absolute inset-0 h-full w-full"
-              style={reduced ? {} : { scale }}
-            >
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 1920px"
-                className="object-cover"
-                style={{ objectPosition }}
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-        {text && (
-          <motion.p
-            className="mx-auto mt-12 max-w-sm text-center font-serif text-base leading-relaxed tracking-wide text-foreground-secondary"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 1.2 }}
-          >
-            {text}
-          </motion.p>
-        )}
       </div>
     );
   }

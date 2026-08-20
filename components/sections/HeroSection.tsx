@@ -8,10 +8,8 @@ import { COUPLE, WEDDING_DATE } from "@/lib/constants";
 import { HERO_LAYOUT } from "@/lib/hero-decorations";
 import { WEDDING_IMAGES } from "@/lib/images";
 import { usePrefersReducedMotion } from "@/lib/motion";
-import { IntroButterfly } from "@/components/sections/intro/IntroButterfly";
 import { HeroCornerDecorations } from "@/components/sections/hero/HeroCornerDecorations";
 import { HeroDriftingPetals } from "@/components/sections/hero/HeroDriftingPetals";
-import { HeroPearlDrapes } from "@/components/sections/hero/HeroPearlDrapes";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +17,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const heroNameColorStyle = {
   color: "#F8F1E7",
   textShadow:
-    "0 2px 10px rgba(45,30,20,0.32), 0 1px 2px rgba(45,30,20,0.22)",
+    "0 2px 8px rgba(35, 25, 18, 0.30), 0 1px 2px rgba(45,30,20, 0.22)",
 } as const;
 
 const heroAmpersandColorStyle = {
@@ -27,7 +25,7 @@ const heroAmpersandColorStyle = {
   fontWeight: 600,
   letterSpacing: "0.14em",
   color: "#D8B77A",
-  textShadow: "0 1px 6px rgba(45,30,20,0.22)",
+  textShadow: "0 2px 8px rgba(35, 25, 18, 0.30)",
   opacity: 1,
   transform: "none",
 } as const;
@@ -82,15 +80,15 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] w-full overflow-hidden"
+      className="relative h-[100svh] w-full overflow-hidden bg-[#d8c7aa]"
     >
       <motion.div
         className="absolute inset-0 z-0"
         style={reduced ? {} : { scale: imageScale, y: imageY }}
       >
         <motion.div
-          className="relative h-full w-full"
-          initial={reduced ? {} : { opacity: 0, scale: 1.04 }}
+          className="relative h-full w-full bg-[#d8c7aa]"
+          initial={reduced ? {} : { scale: 1.04 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.65, ease: "easeOut" }}
         >
@@ -102,15 +100,23 @@ export function HeroSection() {
             sizes="100vw"
             className="object-cover object-center"
           />
-
-          <div className="absolute inset-0 bg-gradient-to-b from-[#f7f2e8]/35 via-[#3b3027]/10 to-[#3b3027]/50" />
         </motion.div>
       </motion.div>
 
       <HeroCornerDecorations />
-      <HeroPearlDrapes />
       <HeroDriftingPetals />
-      <IntroButterfly className="z-[15]" />
+
+      <div
+        aria-hidden="true"
+        className="hero-text-readability pointer-events-none absolute left-1/2 z-[15] w-[min(92%,460px)]"
+        style={{
+          top: HERO_LAYOUT.namesTop,
+          height: "320px",
+          transform: "translate(-50%, -38%)",
+          background:
+            "radial-gradient(circle at center, rgba(45, 32, 24, 0.22) 0%, rgba(45, 32, 24, 0.12) 45%, rgba(45, 32, 24, 0) 75%)",
+        }}
+      />
 
       {/* Names */}
       <div
@@ -173,11 +179,12 @@ export function HeroSection() {
         "
         style={{
           top: HERO_LAYOUT.dateTop,
-          fontSize: "16px",
-          fontWeight: 500,
-          letterSpacing: "0.14em",
-          color: "#E8D6B7",
-          textShadow: "0 1px 6px rgba(40,25,15,0.30)",
+          fontSize: "clamp(34px, 9vw, 64px)",
+          fontWeight: 400,
+          letterSpacing: "0.06em",
+          color: "#C89E5A",
+          textShadow:
+            "0 2px 6px rgba(45, 30, 18, 0.30), 0 5px 14px rgba(45, 30, 18, 0.14)",
         }}
       >
         {WEDDING_DATE.hero}

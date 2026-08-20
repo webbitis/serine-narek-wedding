@@ -45,7 +45,7 @@ function LocationCard({ title, venue, mapUrl, index }: LocationCardProps) {
         rel="noopener noreferrer"
         className={`inline-block border-b border-gold/35 pb-1 text-[0.7rem] tracking-[0.22em] text-gold transition-colors hover:border-gold/60 ${LOCATIONS_LAYOUT.venueToMap}`}
       >
-        Բացել քարտեզում
+        Ինչպես հասնել
       </a>
     </motion.div>
   );

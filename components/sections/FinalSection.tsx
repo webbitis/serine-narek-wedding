@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { KenBurnsBackground } from "@/components/decorations/KenBurnsBackground";
-import { DecorationImage } from "@/components/decorations/DecorationImage";
 import { COUPLE } from "@/lib/constants";
-import { DECORATIONS } from "@/lib/decorations";
 import { WEDDING_IMAGES } from "@/lib/images";
 
 export function FinalSection() {
@@ -48,13 +46,6 @@ export function FinalSection() {
           {COUPLE.full}
         </motion.p>
       </div>
-
-      <DecorationImage
-        src={DECORATIONS.pearlDropsSet}
-        width={120}
-        height={60}
-        className="absolute bottom-[70px] left-1/2 z-10 w-20 -translate-x-1/2 opacity-50"
-      />
     </section>
   );
 }

@@ -1,6 +1,6 @@
 /** Intro background artwork — fixed dimensions for Next.js Image */
 export const INTRO_BACKGROUND = {
-  src: "/images/wedding-intro-bg-v3.png",
+  src: "/images/first.jpeg",
   width: 852,
   height: 1846,
   objectPosition: "center center",
@@ -101,14 +101,34 @@ export const INTRO_BUTTERFLIES: IntroButterflyConfig[] = [
   },
 ];
 
-export const INTRO_OPEN_DURATION_MS = 1800;
-export const INTRO_OPEN_DURATION_REDUCED_MS = 550;
+export const INTRO_OPEN_DURATION_MS = 3600;
+export const INTRO_OPEN_DURATION_REDUCED_MS = 800;
+export const INTRO_PHOTO_REVEAL_DURATION = 1.8;
 
-/** Viewport-relative positions — container is always 100dvh with object-cover bg */
+export const INTRO_DISPLAY_NAMES = {
+  first: "Narek",
+  second: "Serine",
+} as const;
+
+export const INTRO_DATE_STACK = ["10", "10", "26"] as const;
+
+/** Viewport-relative positions for the editorial intro layout */
 export const INTRO_LAYOUT = {
-  namesTop: "calc(64% - 25px)",
-  dateTop: "calc(73% - 25px)",
-  circleTop: "calc(89% - 2px)",
+  dateFirstTop: "calc(10% + 15vh)",
+  dateFirstLeft: "7%",
+  dateSecondTop: "calc(10% + 15vh + 16%)",
+  dateSecondLeft: "calc(21% - 12px)",
+  dateYearTop: "calc(10% + 15vh + 34%)",
+  dateYearLeft: "9%",
+  dateSize: "clamp(125px, 34vw, 185px)",
+  namesRight: "7%",
+  namesTop: "calc(52% + 6vh)",
+  kickerTop: "max(7%, calc(env(safe-area-inset-top, 0px) + 1.15rem))",
+  namesSize: "clamp(82px, 24vw, 205px)",
+  ampersandSize: "clamp(42px, 12vw, 65px)",
+  playSize: 58,
+  playIconSize: 28,
+  playBottom: "6%",
 } as const;
 
 export type IntroLightParticle = {

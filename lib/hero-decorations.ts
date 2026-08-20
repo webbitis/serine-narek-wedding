@@ -1,7 +1,7 @@
 /** Static hero petal configs — no random values */
 export const HERO_LAYOUT = {
   namesTop: "65%",
-  dateTop: "calc(65% + 110px)",
+  dateTop: "calc(65% + 122px)",
 } as const;
 
 export type HeroPetalConfig = {

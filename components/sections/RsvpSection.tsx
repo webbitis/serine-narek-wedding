@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { FormEvent, useState } from "react";
 import { DecorationImage } from "@/components/decorations/DecorationImage";
-import { LaceCorner } from "@/components/decorations/LaceCorner";
 import { Pearl } from "@/components/ui/Pearl";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { DECORATIONS } from "@/lib/decorations";
@@ -121,16 +120,20 @@ export function RsvpSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#fbf8f1] px-6 py-24 md:py-32">
-      <div className="relative z-10 mx-auto max-w-lg">
-        <div className="pointer-events-none absolute -left-[10px] -top-[30px] z-0">
-          <LaceCorner
-            side="top-left"
-            size="sm"
-            className="!relative !left-0 !top-0"
-          />
-        </div>
+    <section className="relative overflow-hidden bg-[#fbf8f1] px-6 pt-24 pb-5 md:pt-32 md:pb-6">
+      <div
+        className="pointer-events-none absolute -top-2 right-3 z-[1] w-[clamp(120px,35vw,185px)] opacity-[0.82] md:right-5 md:w-[220px]"
+        aria-hidden="true"
+      >
+        <DecorationImage
+          src={DECORATIONS.pearlFloralGarland}
+          width={1129}
+          height={447}
+          className="h-auto w-full object-contain"
+        />
+      </div>
 
+      <div className="relative z-10 mx-auto max-w-lg">
         <TextReveal className="relative z-10 text-center">
           <h2 className="font-serif text-2xl tracking-[0.12em] text-gold md:text-3xl">
             Կլինե՞ք մեզ հետ
@@ -145,7 +148,7 @@ export function RsvpSection() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="relative mt-12 space-y-9 rounded-sm bg-pearl/50 px-5 py-9 sm:px-7"
+          className="relative mt-12 space-y-9 rounded-sm bg-pearl/50 px-5 pt-9 pb-1 sm:px-7"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -155,7 +158,7 @@ export function RsvpSection() {
           <div className="relative z-10">
             <label
               htmlFor="fullName"
-              className="mb-2 block text-[0.65rem] tracking-[0.18em] text-foreground-secondary uppercase"
+              className="mb-2.5 block text-lg font-medium tracking-[0.18em] text-foreground-secondary uppercase md:text-xl"
             >
               Անուն Ազգանուն
             </label>
@@ -181,7 +184,7 @@ export function RsvpSection() {
 
           {/* 2. Side */}
           <fieldset className="relative z-10">
-            <legend className="mb-3 text-[0.65rem] tracking-[0.18em] text-foreground-secondary uppercase">
+            <legend className="mb-2.5 text-lg font-medium tracking-[0.18em] text-foreground-secondary uppercase md:text-xl">
               Ու՞մ կողմից եք
             </legend>
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -200,7 +203,7 @@ export function RsvpSection() {
 
           {/* 3. Attendance */}
           <fieldset className="relative z-10">
-            <legend className="mb-3 text-[0.65rem] tracking-[0.18em] text-foreground-secondary uppercase">
+            <legend className="mb-2.5 text-lg font-medium tracking-[0.18em] text-foreground-secondary uppercase md:text-xl">
               Մասնակցություն
             </legend>
             <div className="space-y-2.5">
@@ -277,13 +280,30 @@ export function RsvpSection() {
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={submitting || !form.fullName.trim() || !form.side || !form.attendance}
-            className="relative z-10 w-full border border-gold/35 bg-background/60 py-4 text-[0.7rem] tracking-[0.25em] text-gold transition-all hover:border-gold/60 hover:bg-gold/5 disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {submitting ? "Ուղարկվում է..." : "Հաստատել մասնակցությունը"}
-          </button>
+          <div className="relative z-10">
+            <button
+              type="submit"
+              disabled={submitting || !form.fullName.trim() || !form.side || !form.attendance}
+              className="w-full border border-gold/35 bg-background/60 py-4 text-[0.7rem] tracking-[0.25em] text-gold transition-all hover:border-gold/60 hover:bg-gold/5 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {submitting ? "Ուղարկվում է..." : "Հաստատել մասնակցությունը"}
+            </button>
+
+            <motion.div
+              className="mt-3.5 flex justify-center"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 0.78, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <DecorationImage
+                src={DECORATIONS.floatingPetals}
+                width={261}
+                height={206}
+                className="h-auto w-[clamp(85px,24vw,125px)] object-contain md:w-[135px]"
+              />
+            </motion.div>
+          </div>
         </motion.form>
       </div>
     </section>

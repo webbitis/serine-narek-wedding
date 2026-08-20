@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { DecorationImage } from "@/components/decorations/DecorationImage";
 import { FloatingPetals } from "@/components/decorations/FloatingPetals";
-import { PhotoStoryGalleryCarousel } from "@/components/sections/PhotoStoryGalleryCarousel";
+import { PhotoStoryGallery } from "@/components/sections/PhotoStoryGallery";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { DECORATIONS } from "@/lib/decorations";
 
@@ -37,16 +36,10 @@ export function InvitationSection() {
             Ձեր ներկայությունը մեր օրը կդարձնի էլ ավելի հիշարժան։
           </p>
         </TextReveal>
+      </div>
 
-        <motion.div
-          className="relative mx-auto mt-16"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <PhotoStoryGalleryCarousel />
-        </motion.div>
+      <div className="relative z-10 mx-auto mt-16 w-full max-w-[1080px] md:mt-24">
+        <PhotoStoryGallery />
       </div>
     </section>
   );

@@ -55,6 +55,50 @@ body {
   font-family: var(--font-noto-serif-armenian), Georgia, serif;
 }
 
+.font-intro-script {
+  font-family: var(--font-intro-script), Italianno, cursive;
+}
+
+.font-intro-serif {
+  font-family: var(--font-intro-serif), "Instrument Serif", serif;
+}
+
+.intro-champagne-gold {
+  background-image: linear-gradient(
+    135deg,
+    #fff1c2 0%,
+    #f0d58d 28%,
+    #ddb866 55%,
+    #f4da96 78%,
+    #ffe8af 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 2px rgba(80, 50, 20, 0.25),
+    0 3px 8px rgba(65, 40, 15, 0.18);
+  filter:
+    drop-shadow(0 1px 2px rgba(80, 50, 20, 0.25))
+    drop-shadow(0 3px 8px rgba(65, 40, 15, 0.18));
+}
+
+.intro-champagne-gold-delicate {
+  background-image: linear-gradient(
+    135deg,
+    #f6df9b 0%,
+    #d8ad4f 35%,
+    #b77b25 65%,
+    #ebcb73 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 5px rgba(65, 40, 15, 0.18));
+}
+
 .text-gold-gradient {
   background: linear-gradient(
     135deg,

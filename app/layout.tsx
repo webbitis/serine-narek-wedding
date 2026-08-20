@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_Armenian, Noto_Serif_Armenian } from "next/font/google";
+import {
+  Instrument_Serif,
+  Italianno,
+  Noto_Sans_Armenian,
+  Noto_Serif_Armenian,
+} from "next/font/google";
 import "./globals.css";
 
 const notoSerifArmenian = Noto_Serif_Armenian({
@@ -13,6 +18,20 @@ const notoSansArmenian = Noto_Sans_Armenian({
   variable: "--font-noto-sans-armenian",
   subsets: ["armenian", "latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const italianno = Italianno({
+  variable: "--font-intro-script",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-intro-serif",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -38,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="hy"
-      className={`${notoSerifArmenian.variable} ${notoSansArmenian.variable} h-full antialiased`}
+      className={`${notoSerifArmenian.variable} ${notoSansArmenian.variable} ${italianno.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full overflow-x-hidden bg-background text-foreground">
         {children}

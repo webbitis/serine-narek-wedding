@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { COUPLE } from "@/lib/constants";
-import { INTRO_LAYOUT } from "@/lib/intro-constants";
+import { INTRO_DISPLAY_NAMES, INTRO_LAYOUT } from "@/lib/intro-constants";
 import { usePrefersReducedMotion } from "@/lib/motion";
 
 type IntroNamesProps = {
@@ -11,81 +10,73 @@ type IntroNamesProps = {
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const nameStyle = {
-  color: "#6B452C",
-  fontWeight: 500,
-  lineHeight: 1.02,
-  letterSpacing: "0.01em",
-  textShadow: "0 1px 0 rgba(255,255,255,0.45), 0 3px 12px rgba(80,45,20,0.15)",
-} as const;
-
 export function IntroNames({ opening }: IntroNamesProps) {
   const reduced = usePrefersReducedMotion();
 
   return (
     <div
-      className="pointer-events-none absolute left-1/2 z-20 w-[92%] -translate-x-1/2 -translate-y-1/2 text-center"
-      style={{ top: INTRO_LAYOUT.namesTop }}
+      className="pointer-events-none absolute z-20 flex w-fit flex-col items-end text-right"
+      style={{
+        top: INTRO_LAYOUT.namesTop,
+        right: INTRO_LAYOUT.namesRight,
+      }}
     >
       <motion.h1
-        className="font-serif"
+        className="intro-champagne-gold font-intro-script relative z-10"
         style={{
-          ...nameStyle,
-          fontSize: "clamp(44px, 12vw, 56px)",
+          fontSize: INTRO_LAYOUT.namesSize,
+          fontWeight: 500,
+          lineHeight: 0.82,
+          letterSpacing: "0em",
         }}
-        initial={reduced ? {} : { opacity: 0, y: 20, scale: 0.98 }}
-        animate={
-          opening
-            ? { opacity: 0, y: -8, scale: 1 }
-            : { opacity: 1, y: 0, scale: 1 }
-        }
-        transition={
-          reduced
-            ? { duration: 0.3 }
-            : { duration: opening ? 0.9 : 1.3, ease }
-        }
+        initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        animate={opening ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+        transition={{
+          duration: reduced ? 0.3 : opening ? 0.6 : 0.9,
+          delay: reduced || opening ? 0 : 0.7,
+          ease,
+        }}
       >
-        {COUPLE.bride}
+        {INTRO_DISPLAY_NAMES.first}
       </motion.h1>
 
       <motion.span
-        className="font-serif block"
+        className="intro-champagne-gold font-intro-script pointer-events-none absolute left-1/2 z-[1] -translate-x-1/2 text-center"
         style={{
-          fontSize: "25px",
+          top: "46%",
+          fontSize: INTRO_LAYOUT.ampersandSize,
           fontWeight: 400,
-          color: "#B68A4A",
-          margin: "4px 0",
+          lineHeight: 0.6,
+          opacity: 0.9,
         }}
-        initial={reduced ? {} : { opacity: 0 }}
-        animate={opening ? { opacity: 0 } : { opacity: 1 }}
-        transition={
-          reduced
-            ? { duration: 0.3 }
-            : { duration: opening ? 0.7 : 0.8, delay: opening ? 0 : 0.35, ease }
-        }
+        initial={reduced ? { opacity: 0.9 } : { opacity: 0 }}
+        animate={opening ? { opacity: 0 } : { opacity: 0.9 }}
+        transition={{
+          duration: reduced ? 0.3 : opening ? 0.5 : 0.8,
+          delay: reduced || opening ? 0 : 0.85,
+          ease,
+        }}
       >
         &
       </motion.span>
 
       <motion.h1
-        className="font-serif"
+        className="intro-champagne-gold font-intro-script relative z-10"
         style={{
-          ...nameStyle,
-          fontSize: "clamp(44px, 12vw, 56px)",
+          fontSize: INTRO_LAYOUT.namesSize,
+          fontWeight: 500,
+          lineHeight: 0.82,
+          letterSpacing: "0em",
         }}
-        initial={reduced ? {} : { opacity: 0, y: 20, scale: 0.98 }}
-        animate={
-          opening
-            ? { opacity: 0, y: -8, scale: 1 }
-            : { opacity: 1, y: 0, scale: 1 }
-        }
-        transition={
-          reduced
-            ? { duration: 0.3 }
-            : { duration: opening ? 0.9 : 1.3, delay: opening ? 0 : 0.55, ease }
-        }
+        initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        animate={opening ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+        transition={{
+          duration: reduced ? 0.3 : opening ? 0.6 : 0.9,
+          delay: reduced || opening ? 0 : 1,
+          ease,
+        }}
       >
-        {COUPLE.groom}
+        {INTRO_DISPLAY_NAMES.second}
       </motion.h1>
     </div>
   );

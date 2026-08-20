@@ -18,7 +18,7 @@ export function GoldDivider({ variant = "ornament", className }: GoldDividerProp
 
   return (
     <motion.div
-      className={cn("flex justify-center px-8 py-10", className)}
+      className={cn("flex justify-center px-8 py-6", className)}
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}

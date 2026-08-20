@@ -1,66 +1,73 @@
-/** Slider config for the invitation photo block (InvitationSection). */
+export type GalleryPhotoSide = "left" | "right";
 
 export type GalleryPhoto = {
   src: string;
   alt: string;
-  objectPosition: string;
+  width: number;
+  height: number;
+  side: GalleryPhotoSide;
+  /** Mobile + desktop width/alignment — irregular on purpose. */
+  frameClass: string;
+  marginTop: number;
 };
 
-/** Tailwind aspect-ratio class — controls slider height. */
-export const PHOTO_STORY_GALLERY_ASPECT = "aspect-[4/5]";
-
-/** Tailwind width classes — slider frame width on mobile/desktop. */
-export const PHOTO_STORY_SLIDER_WIDTH = "w-[82vw] max-w-[320px]";
-
-/** Autoplay interval in milliseconds. */
-export const PHOTO_STORY_GALLERY_INTERVAL_MS = 5000;
-
-/** Fade transition duration in seconds. */
-export const PHOTO_STORY_GALLERY_FADE_DURATION = 1.1;
-
 /**
- * Edit this list to change slider photos.
- * dance.png is always the first slide.
+ * Invitation photo story — vertical asymmetric sequence.
+ * Order: 1 → 6. Odd = left, even = right.
  */
 export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
   {
-    src: "/images/dance.png",
+    src: "/images/1.jpeg",
     alt: "Սերինե և Նարեկ",
-    objectPosition: "center 40%",
+    width: 3808,
+    height: 5712,
+    side: "left",
+    frameClass: "w-[82%] md:w-[56%] ml-0 mr-auto",
+    marginTop: 0,
   },
   {
-    src: "/images/kiss.jpg",
-    alt: "Սեր",
-    objectPosition: "center 40%",
+    src: "/images/2.jpeg",
+    alt: "Սերինե և Նարեկ",
+    width: 3808,
+    height: 5712,
+    side: "right",
+    frameClass: "w-[62%] md:w-[40%] ml-auto mr-[4%] md:mr-[6%]",
+    marginTop: 52,
   },
   {
-    src: "/images/sweet.jpg",
-    alt: "Քաղցր պահ",
-    objectPosition: "center 35%",
+    src: "/images/3.jpeg",
+    alt: "Սերինե և Նարեկ",
+    width: 4000,
+    height: 6000,
+    side: "left",
+    frameClass: "w-[74%] md:w-[48%] ml-[10%] md:ml-[12%] mr-auto",
+    marginTop: 72,
   },
   {
-    src: "/images/run.jpg",
-    alt: "Միասին",
-    objectPosition: "center 42%",
+    src: "/images/4.jpeg",
+    alt: "Սերինե և Նարեկ",
+    width: 1080,
+    height: 1620,
+    side: "right",
+    frameClass: "w-[84%] md:w-[55%] ml-auto mr-[-3%] md:mr-[-1%]",
+    marginTop: 42,
   },
   {
-    src: "/images/hands.jpg",
-    alt: "Երկու ճանապարհ",
-    objectPosition: "70% center",
+    src: "/images/5.jpeg",
+    alt: "Սերինե և Նարեկ",
+    width: 1440,
+    height: 2160,
+    side: "left",
+    frameClass: "w-[58%] md:w-[36%] ml-[5%] md:ml-[8%] mr-auto",
+    marginTop: 76,
   },
   {
-    src: "/images/horse_look.jpg",
-    alt: "Նայելով արևին",
-    objectPosition: "center 35%",
+    src: "/images/6.jpeg",
+    alt: "Սերինե և Նարեկ",
+    width: 1439,
+    height: 1947,
+    side: "right",
+    frameClass: "w-[76%] md:w-[50%] ml-auto mr-[7%] md:mr-[10%]",
+    marginTop: 50,
   },
 ];
-
-/** Decorative floral/lace placement — Tailwind classes relative to the slider image frame. */
-export const PHOTO_STORY_GALLERY_DECORATIONS = {
-  /** Left corner — horizontal: -left-[12%], vertical: -top-[8%] */
-  leftCorner:
-    "absolute -left-[12%] -top-[8%] z-20 w-[38%] pointer-events-none opacity-[0.32]",
-  /** Right lace — horizontal: -right-[18%], vertical: -top-[10%] */
-  rightLace:
-    "absolute -right-[18%] -top-[10%] z-20 w-[38%] pointer-events-none opacity-[0.28]",
-} as const;

@@ -1,33 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { useMusic } from "@/components/providers/MusicProvider";
 import { COUPLE, WEDDING_DATE } from "@/lib/constants";
-import { WEDDING_IMAGES } from "@/lib/images";
 import {
   INTRO_OPEN_DURATION_MS,
   INTRO_OPEN_DURATION_REDUCED_MS,
 } from "@/lib/intro-constants";
 import { usePrefersReducedMotion } from "@/lib/motion";
-import { HeroRevealLayer } from "@/components/sections/intro/BloomPetalsLayer";
 import { IntroBackground } from "./intro/IntroBackground";
-import { IntroButterfly } from "./intro/IntroButterfly";
 import { IntroCircleCTA } from "./intro/IntroCircleCTA";
 import { IntroDate } from "./intro/IntroDate";
+import { IntroKicker } from "./intro/IntroKicker";
 import { IntroNames } from "./intro/IntroNames";
-import { IntroOpenEffects } from "./intro/IntroOpenEffects";
 
 type IntroOverlayProps = {
+  onPlay: () => void;
   onComplete: () => void;
 };
 
 type Phase = "idle" | "opening";
 
-const ease = [0.22, 1, 0.36, 1] as const;
-
-export function IntroOverlay({ onComplete }: IntroOverlayProps) {
+export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
   const [phase, setPhase] = useState<Phase>("idle");
   const { playWithFadeIn, hasAudio } = useMusic();
   const reduced = usePrefersReducedMotion();
@@ -55,64 +49,30 @@ export function IntroOverlay({ onComplete }: IntroOverlayProps) {
       void playWithFadeIn();
     }
 
+    onPlay();
     setPhase("opening");
 
     setTimeout(
       onComplete,
       reduced ? INTRO_OPEN_DURATION_REDUCED_MS : INTRO_OPEN_DURATION_MS,
     );
-  }, [hasAudio, onComplete, phase, playWithFadeIn, reduced]);
+  }, [hasAudio, onComplete, onPlay, phase, playWithFadeIn, reduced]);
 
   return (
-    <motion.section
-      className="fixed inset-0 z-[200] h-[100dvh] min-h-[100dvh] max-h-[100dvh] w-full touch-none overflow-hidden overscroll-none bg-[#F7F1E7]"
-      animate={
-        opening
-          ? { opacity: 0, scale: 1.04 }
-          : { opacity: 1, scale: 1 }
-      }
-      transition={{ duration: reduced ? 0.5 : 1.75, ease }}
+    <section
+      className={`fixed inset-0 z-[200] h-[100dvh] min-h-[100dvh] max-h-[100dvh] w-full overflow-hidden overscroll-none ${
+        opening ? "pointer-events-none" : "touch-none"
+      }`}
+      style={{ backgroundColor: opening ? "transparent" : "#d8c7aa" }}
       aria-label={`${COUPLE.bride} & ${COUPLE.groom}, ${WEDDING_DATE.display}`}
     >
-      <HeroRevealLayer active={opening} />
-
-      <div className="relative mx-auto h-full w-full max-w-[430px] overflow-hidden">
+      <div className="relative h-full w-full overflow-hidden">
         <IntroBackground opening={opening} />
-
-        {!reduced && <IntroButterfly exiting={opening} />}
-        <IntroNames opening={opening} />
+        <IntroKicker opening={opening} />
         <IntroDate opening={opening} />
-        <IntroOpenEffects active={opening && !reduced} />
-
+        <IntroNames opening={opening} />
         {!opening && <IntroCircleCTA onClick={handleOpen} disabled={false} />}
-
-        {opening && (
-          <IntroCircleCTA
-            onClick={() => undefined}
-            disabled
-            glowing
-            pulsing
-          />
-        )}
       </div>
-
-      {reduced && opening && (
-        <motion.div
-          className="fixed inset-0 z-[1] overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.45 }}
-        >
-          <Image
-            src={WEDDING_IMAGES.hero.src}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            style={{ objectPosition: "center 22%" }}
-          />
-        </motion.div>
-      )}
-    </motion.section>
+    </section>
   );
 }
