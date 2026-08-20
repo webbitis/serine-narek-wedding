@@ -1,7 +1,7 @@
 export const COUPLE = {
   bride: "Սերինե",
   groom: "Նարեկ",
-  full: "Սերինե & Նարեկ",
+  full: "Նարեկ & Սերինե",
 } as const;
 
 export const WEDDING_DATE = {

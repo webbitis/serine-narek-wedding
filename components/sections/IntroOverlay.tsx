@@ -64,7 +64,7 @@ export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
         opening ? "pointer-events-none" : "touch-none"
       }`}
       style={{ backgroundColor: opening ? "transparent" : "#d8c7aa" }}
-      aria-label={`${COUPLE.bride} & ${COUPLE.groom}, ${WEDDING_DATE.display}`}
+      aria-label={`${COUPLE.full}, ${WEDDING_DATE.display}`}
     >
       <div className="relative h-full w-full overflow-hidden">
         <IntroBackground opening={opening} />

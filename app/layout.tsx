@@ -36,11 +36,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Սերինե & Նարեկ | Հրավեր",
+  title: "Նարեկ & Սերինե | Հրավեր",
   description:
     "Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենակարևոր օրվան — 10 Հոկտեմբերի 2026",
   openGraph: {
-    title: "Սերինե & Նարեկ",
+    title: "Նարեկ & Սերինե | Հրավեր",
     description: "10 · 10 · 2026",
     locale: "hy_AM",
     type: "website",

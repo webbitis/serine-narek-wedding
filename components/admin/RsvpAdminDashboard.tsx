@@ -160,7 +160,7 @@ export function RsvpAdminDashboard() {
               RSVP ցուցակ
             </h1>
             <p className="mt-2 text-sm text-foreground-secondary">
-              Սերինե և Նարեկ
+              Նարեկ և Սերինե
             </p>
           </div>
           <button

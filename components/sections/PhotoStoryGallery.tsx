@@ -13,14 +13,14 @@ export function PhotoStoryGallery() {
 
   return (
     <div className="relative w-full overflow-x-clip">
-      {PHOTO_STORY_GALLERY_PHOTOS.map((photo) => {
+      {PHOTO_STORY_GALLERY_PHOTOS.map((photo, index) => {
         const fromLeft = photo.side === "left";
 
         return (
           <motion.figure
             key={photo.src}
             className={cn("relative block", photo.frameClass)}
-            style={{ marginTop: photo.marginTop }}
+            style={{ marginTop: photo.marginTop, zIndex: index + 1 }}
             initial={
               reduced
                 ? { opacity: 1, x: 0, y: 0 }

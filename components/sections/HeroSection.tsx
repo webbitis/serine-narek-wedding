@@ -4,39 +4,10 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { COUPLE, WEDDING_DATE } from "@/lib/constants";
-import { HERO_LAYOUT } from "@/lib/hero-decorations";
 import { WEDDING_IMAGES } from "@/lib/images";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { HeroCornerDecorations } from "@/components/sections/hero/HeroCornerDecorations";
 import { HeroDriftingPetals } from "@/components/sections/hero/HeroDriftingPetals";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-/** Hero only — intro stays untouched */
-const heroNameColorStyle = {
-  color: "#F8F1E7",
-  textShadow:
-    "0 2px 8px rgba(35, 25, 18, 0.30), 0 1px 2px rgba(45,30,20, 0.22)",
-} as const;
-
-const heroAmpersandColorStyle = {
-  fontSize: "20px",
-  fontWeight: 600,
-  letterSpacing: "0.14em",
-  color: "#D8B77A",
-  textShadow: "0 2px 8px rgba(35, 25, 18, 0.30)",
-  opacity: 1,
-  transform: "none",
-} as const;
-
-const nameTypography = {
-  ...heroNameColorStyle,
-  fontWeight: 400,
-  lineHeight: 0.93,
-  letterSpacing: "0.01em",
-  fontSize: "clamp(42px, 11vw, 56px)",
-} as const;
 
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null);
@@ -49,33 +20,6 @@ export function HeroSection() {
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
-
-  const nameRevealVariants = {
-    hidden: { opacity: 0, y: 16, scale: 0.985 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: reduced ? 0 : 1 + i * 0.35,
-        duration: 1.3,
-        ease,
-      },
-    }),
-  };
-
-  const dateRevealVariants = {
-    hidden: { opacity: 0, y: 12 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: reduced ? 0 : 2.15,
-        duration: 1.2,
-        ease,
-      },
-    },
-  };
 
   return (
     <section
@@ -108,91 +52,61 @@ export function HeroSection() {
 
       <div
         aria-hidden="true"
-        className="hero-text-readability pointer-events-none absolute left-1/2 z-[15] h-[320px] w-[min(92%,460px)] md:h-[400px] md:w-[min(92%,720px)]"
+        className="pointer-events-none absolute left-1/2 z-[15] h-[280px] w-[min(88%,420px)]"
         style={{
-          top: HERO_LAYOUT.namesTop,
-          transform: "translate(-50%, -38%)",
+          top: "62%",
+          transform: "translate(-50%, -42%)",
           background:
-            "radial-gradient(circle at center, rgba(45, 32, 24, 0.22) 0%, rgba(45, 32, 24, 0.12) 45%, rgba(45, 32, 24, 0) 75%)",
+            "radial-gradient(circle at center, rgba(45, 32, 24, 0.28) 0%, rgba(45, 32, 24, 0.12) 48%, rgba(45, 32, 24, 0) 74%)",
         }}
       />
 
-      {/* Names */}
-      <div
-  className="pointer-events-none absolute left-1/2 z-20 w-[min(92%,24rem)] max-w-full -translate-x-1/2 -translate-y-1/2 text-center"
-  style={{ top: HERO_LAYOUT.namesTop }}
->
-        <motion.h1
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={nameRevealVariants}
-          className="font-serif"
-          style={nameTypography}
-        >
-          {COUPLE.bride}
-        </motion.h1>
-
-        <motion.span
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={nameRevealVariants}
-          className="block font-serif"
-          style={{
-            ...heroAmpersandColorStyle,
-            
-            margin: "5px 0",
-          }}
-        >
-          &
-        </motion.span>
-
-        <motion.h1
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={nameRevealVariants}
-          className="font-serif"
-          style={nameTypography}
-        >
-          {COUPLE.groom}
-        </motion.h1>
-      </div>
-
-      {/* Date */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          z-20
-          md:z-[30]
-          w-[min(92%,24rem)]
-          max-w-full
-          md:w-auto
-          md:max-w-[90%]
-          -translate-x-1/2
-          text-center
-          top-[calc(65%+122px)]
-          md:top-[min(calc(65%+6.75rem),calc(100%-5.75rem))]
-        "
+      <div className="pointer-events-none absolute left-1/2 z-20 w-[min(86%,26rem)] -translate-x-1/2 text-center"
+        style={{ top: "62%" }}
       >
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          variants={dateRevealVariants}
-          className="font-serif md:whitespace-nowrap"
+        <motion.h2
+          className="font-serif"
+          initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: reduced ? 0 : 1.05,
+            duration: reduced ? 0.2 : 1.25,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           style={{
-            fontSize: "clamp(34px, 9vw, 64px)",
+            fontSize: "clamp(28px, 8vw, 42px)",
             fontWeight: 400,
-            letterSpacing: "0.06em",
-            color: "#C89E5A",
+            lineHeight: 1.2,
+            color: "#F8F1E7",
             textShadow:
-              "0 2px 6px rgba(45, 30, 18, 0.30), 0 5px 14px rgba(45, 30, 18, 0.14)",
+              "0 2px 8px rgba(35, 25, 18, 0.32), 0 1px 2px rgba(45, 30, 20, 0.22)",
           }}
         >
-          {WEDDING_DATE.hero}
+          Սիրելի՛ հյուր
+        </motion.h2>
+
+        <motion.p
+          className="mx-auto mt-4 max-w-[18rem] font-serif sm:max-w-[22rem]"
+          initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: reduced ? 0 : 1.4,
+            duration: reduced ? 0.2 : 1.3,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          style={{
+            fontSize: "clamp(16px, 4.5vw, 20px)",
+            fontWeight: 400,
+            lineHeight: 1.7,
+            color: "rgba(248, 241, 231, 0.92)",
+            textShadow: "0 2px 8px rgba(35, 25, 18, 0.30)",
+          }}
+        >
+          Սիրով հրավիրում ենք Ձեզ
+          <br />
+          միասին նշելու մեր կյանքի
+          <br />
+          ամենակարևոր օրը։
         </motion.p>
       </div>
 

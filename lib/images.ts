@@ -1,17 +1,17 @@
 export const WEDDING_IMAGES = {
   hero: {
     src: "/images/first.jpeg",
-    alt: "Սերինե և Նարեկ",
+    alt: "Նարեկ և Սերինե",
     objectPosition: "center center",
   },
   invitation: {
     src: "/images/dance.png",
-    alt: "Սերինե և Նարեկ",
+    alt: "Նարեկ և Սերինե",
     objectPosition: "center 30%",
   },
   final: {
-    src: "/images/sweet1.png",
-    alt: "Սերինե և Նարեկ",
+    src: "/images/dance.png",
+    alt: "Նարեկ և Սերինե",
     objectPosition: "center 28%",
   },
 } as const;
