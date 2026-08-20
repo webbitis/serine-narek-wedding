@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useMusic } from "@/components/providers/MusicProvider";
 import { COUPLE, WEDDING_DATE } from "@/lib/constants";
 import {
@@ -23,6 +23,7 @@ type Phase = "idle" | "opening";
 
 export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
   const [phase, setPhase] = useState<Phase>("idle");
+  const openingLock = useRef(false);
   const { playWithFadeIn, hasAudio } = useMusic();
   const reduced = usePrefersReducedMotion();
 
@@ -42,8 +43,9 @@ export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
     };
   }, []);
 
-  const handleOpen = useCallback(async () => {
-    if (phase !== "idle") return;
+  const handleOpen = useCallback(() => {
+    if (openingLock.current || phase !== "idle") return;
+    openingLock.current = true;
 
     if (hasAudio) {
       void playWithFadeIn();
@@ -58,10 +60,23 @@ export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
     );
   }, [hasAudio, onComplete, onPlay, phase, playWithFadeIn, reduced]);
 
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLElement>) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      handleOpen();
+    },
+    [handleOpen],
+  );
+
   return (
     <section
+      role="button"
+      tabIndex={opening ? -1 : 0}
+      onClick={opening ? undefined : handleOpen}
+      onKeyDown={opening ? undefined : handleKeyDown}
       className={`fixed inset-0 z-[200] h-[100dvh] min-h-[100svh] w-full overflow-hidden overscroll-none ${
-        opening ? "pointer-events-none" : "touch-none"
+        opening ? "pointer-events-none" : "cursor-pointer touch-none"
       }`}
       style={{ backgroundColor: opening ? "transparent" : "#d8c7aa" }}
       aria-label={`${COUPLE.full}, ${WEDDING_DATE.display}`}

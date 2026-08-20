@@ -10,9 +10,9 @@ export const WEDDING_IMAGES = {
     objectPosition: "center 30%",
   },
   final: {
-    src: "/images/dance.png",
+    src: "/images/last.jpeg",
     alt: "Նարեկ և Սերինե",
-    objectPosition: "center 28%",
+    objectPosition: "center 36%",
   },
 } as const;
 

@@ -75,7 +75,10 @@ export function IntroCircleCTA({ onClick, disabled }: IntroCircleCTAProps) {
 
           <motion.button
             type="button"
-            onClick={onClick}
+            onClick={(event) => {
+              event.stopPropagation();
+              onClick();
+            }}
             disabled={disabled}
             aria-label="Play"
             className="pointer-events-auto relative z-10 flex h-full w-full items-center justify-center rounded-full bg-transparent disabled:cursor-default"
