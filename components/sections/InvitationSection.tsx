@@ -8,10 +8,10 @@ import { DECORATIONS } from "@/lib/decorations";
 
 export function InvitationSection() {
   return (
-    <section className="relative overflow-hidden bg-background-alt px-6 py-18 md:py-32">
+    <section className="relative overflow-x-hidden overflow-y-visible bg-background-alt px-4 py-18 sm:px-6 md:py-32">
       <FloatingPetals count={2} />
 
-      <div className="relative z-10 mx-auto max-w-lg">
+      <div className="relative z-10 mx-auto w-full max-w-lg">
         <TextReveal className="text-center">
           <DecorationImage
             src={DECORATIONS.pearlDropsSmall}
@@ -38,7 +38,7 @@ export function InvitationSection() {
         </TextReveal>
       </div>
 
-      <div className="relative z-10 mx-auto mt-16 w-full max-w-[1080px] md:mt-24">
+      <div className="relative z-10 mx-auto mt-16 w-full min-w-0 max-w-[1080px] md:mt-24">
         <PhotoStoryGallery />
       </div>
     </section>

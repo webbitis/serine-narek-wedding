@@ -18,7 +18,7 @@ export function GoldDivider({ variant = "ornament", className }: GoldDividerProp
 
   return (
     <motion.div
-      className={cn("flex justify-center px-8 py-6", className)}
+      className={cn("flex justify-center overflow-hidden px-6 py-6 sm:px-8", className)}
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -28,7 +28,7 @@ export function GoldDivider({ variant = "ornament", className }: GoldDividerProp
         src={src}
         width={variant === "ornament" ? 280 : 320}
         height={variant === "ornament" ? 40 : 16}
-        className="h-auto w-48 opacity-60 md:w-56"
+        className="h-auto w-48 max-w-[min(14rem,70vw)] object-contain opacity-60 md:w-56 md:max-w-none"
       />
     </motion.div>
   );

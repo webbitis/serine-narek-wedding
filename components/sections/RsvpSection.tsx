@@ -35,7 +35,7 @@ function SelectCard({ selected, onClick, label, className }: SelectCardProps) {
       type="button"
       onClick={onClick}
       className={cn(
-        "relative w-full border px-4 py-3.5 text-left text-sm transition-all duration-300",
+        "relative w-full min-h-11 border px-4 py-3.5 text-left text-sm transition-all duration-300",
         selected
           ? "border-gold/60 bg-gold/[0.06] text-foreground"
           : "border-gold/15 bg-transparent text-foreground-secondary hover:border-gold/30",
@@ -95,7 +95,7 @@ export function RsvpSection() {
 
   if (submitted) {
     return (
-      <section className="relative overflow-hidden bg-background-alt px-6 py-24 md:py-32">
+      <section className="relative overflow-hidden bg-background-alt px-4 py-24 sm:px-6 md:py-32">
         <motion.div
           className="relative z-10 mx-auto max-w-lg text-center"
           initial={{ opacity: 0, y: 16 }}
@@ -120,9 +120,9 @@ export function RsvpSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#fbf8f1] px-6 pt-24 pb-5 md:pt-32 md:pb-6">
+    <section className="relative overflow-hidden bg-[#fbf8f1] px-4 pt-24 pb-5 sm:px-6 md:pt-32 md:pb-6">
       <div
-        className="pointer-events-none absolute -top-2 right-3 z-[1] w-[clamp(120px,35vw,185px)] opacity-[0.82] md:right-5 md:w-[220px]"
+        className="pointer-events-none absolute -top-2 right-2 z-[1] w-[clamp(110px,32vw,185px)] opacity-[0.82] sm:right-3 md:right-5 md:w-[220px]"
         aria-hidden="true"
       >
         <DecorationImage
@@ -133,7 +133,7 @@ export function RsvpSection() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-lg">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-lg">
         <TextReveal className="relative z-10 text-center">
           <h2 className="font-serif text-2xl tracking-[0.12em] text-gold md:text-3xl">
             Կլինե՞ք մեզ հետ
@@ -148,7 +148,7 @@ export function RsvpSection() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="relative mt-12 space-y-9 rounded-sm bg-pearl/50 px-5 pt-9 pb-1 sm:px-7"
+          className="relative mt-12 w-full min-w-0 max-w-full space-y-9 rounded-sm bg-pearl/50 px-4 pt-9 pb-1 sm:px-7"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -158,7 +158,7 @@ export function RsvpSection() {
           <div className="relative z-10">
             <label
               htmlFor="fullName"
-              className="mb-2.5 block text-lg font-medium tracking-[0.18em] text-foreground-secondary uppercase md:text-xl"
+            className="mb-2.5 block max-w-full break-words text-lg font-medium tracking-[0.18em] text-foreground-secondary uppercase md:text-xl"
             >
               Անուն Ազգանուն
             </label>
@@ -172,7 +172,7 @@ export function RsvpSection() {
               onChange={(e) => setForm({ ...form, fullName: e.target.value })}
               onFocus={() => setFocusedField("fullName")}
               onBlur={() => setFocusedField(null)}
-              className="w-full border-b border-gold/20 bg-transparent py-3 text-foreground outline-none transition-colors focus:border-gold/50"
+              className="w-full max-w-full min-w-0 border-b border-gold/20 bg-transparent py-3 text-foreground outline-none transition-colors focus:border-gold/50"
             />
             <motion.span
               className="absolute bottom-0 left-0 h-px bg-gold"
@@ -258,7 +258,7 @@ export function RsvpSection() {
                   }
                   onFocus={() => setFocusedField("guestCount")}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full border-b border-gold/20 bg-transparent py-3 text-foreground outline-none transition-colors focus:border-gold/50"
+                  className="w-full max-w-full min-w-0 border-b border-gold/20 bg-transparent py-3 text-foreground outline-none transition-colors focus:border-gold/50"
                 />
                 <motion.span
                   className="absolute bottom-0 left-0 h-px bg-gold"
@@ -284,7 +284,7 @@ export function RsvpSection() {
             <button
               type="submit"
               disabled={submitting || !form.fullName.trim() || !form.side || !form.attendance}
-              className="w-full border border-gold/35 bg-background/60 py-4 text-[0.7rem] tracking-[0.25em] text-gold transition-all hover:border-gold/60 hover:bg-gold/5 disabled:cursor-not-allowed disabled:opacity-40"
+              className="min-h-12 w-full max-w-full border border-gold/35 bg-background/60 px-2 py-4 text-[0.7rem] tracking-[0.25em] text-gold transition-all hover:border-gold/60 hover:bg-gold/5 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? "Ուղարկվում է..." : "Հաստատել մասնակցությունը"}
             </button>

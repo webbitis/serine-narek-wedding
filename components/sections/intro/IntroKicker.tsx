@@ -15,10 +15,10 @@ export function IntroKicker({ opening }: IntroKickerProps) {
 
   return (
     <motion.p
-      className="pointer-events-none absolute left-1/2 z-20 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap font-serif"
+      className="pointer-events-none absolute left-1/2 z-20 flex max-w-[calc(100%-1.25rem)] -translate-x-1/2 items-center gap-2 whitespace-nowrap font-serif"
       style={{
         top: INTRO_LAYOUT.kickerTop,
-        fontSize: "16px",
+        fontSize: "clamp(13px, 3.9vw, 16px)",
         fontWeight: 400,
         letterSpacing: "0.12em",
         color: "rgba(190, 145, 70, 0.9)",

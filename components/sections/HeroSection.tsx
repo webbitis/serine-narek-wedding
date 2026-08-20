@@ -80,7 +80,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] w-full overflow-hidden bg-[#d8c7aa]"
+      className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden bg-[#d8c7aa] md:h-screen md:min-h-[700px]"
     >
       <motion.div
         className="absolute inset-0 z-0"
@@ -98,7 +98,7 @@ export function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center md:object-[center_32%]"
           />
         </motion.div>
       </motion.div>
@@ -108,10 +108,9 @@ export function HeroSection() {
 
       <div
         aria-hidden="true"
-        className="hero-text-readability pointer-events-none absolute left-1/2 z-[15] w-[min(92%,460px)]"
+        className="hero-text-readability pointer-events-none absolute left-1/2 z-[15] h-[320px] w-[min(92%,460px)] md:h-[400px] md:w-[min(92%,720px)]"
         style={{
           top: HERO_LAYOUT.namesTop,
-          height: "320px",
           transform: "translate(-50%, -38%)",
           background:
             "radial-gradient(circle at center, rgba(45, 32, 24, 0.22) 0%, rgba(45, 32, 24, 0.12) 45%, rgba(45, 32, 24, 0) 75%)",
@@ -120,7 +119,7 @@ export function HeroSection() {
 
       {/* Names */}
       <div
-  className="pointer-events-none absolute left-1/2 z-20 w-[92%] -translate-x-1/2 -translate-y-1/2 text-center"
+  className="pointer-events-none absolute left-1/2 z-20 w-[min(92%,24rem)] max-w-full -translate-x-1/2 -translate-y-1/2 text-center"
   style={{ top: HERO_LAYOUT.namesTop }}
 >
         <motion.h1
@@ -162,33 +161,40 @@ export function HeroSection() {
       </div>
 
       {/* Date */}
-      <motion.p
-        initial="hidden"
-        animate="visible"
-        variants={dateRevealVariants}
+      <div
         className="
           pointer-events-none
           absolute
           left-1/2
           z-20
-          w-[92%]
+          md:z-[30]
+          w-[min(92%,24rem)]
+          max-w-full
+          md:w-auto
+          md:max-w-[90%]
           -translate-x-1/2
           text-center
-          font-serif
-          
+          top-[calc(65%+122px)]
+          md:top-[min(calc(65%+6.75rem),calc(100%-5.75rem))]
         "
-        style={{
-          top: HERO_LAYOUT.dateTop,
-          fontSize: "clamp(34px, 9vw, 64px)",
-          fontWeight: 400,
-          letterSpacing: "0.06em",
-          color: "#C89E5A",
-          textShadow:
-            "0 2px 6px rgba(45, 30, 18, 0.30), 0 5px 14px rgba(45, 30, 18, 0.14)",
-        }}
       >
-        {WEDDING_DATE.hero}
-      </motion.p>
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={dateRevealVariants}
+          className="font-serif md:whitespace-nowrap"
+          style={{
+            fontSize: "clamp(34px, 9vw, 64px)",
+            fontWeight: 400,
+            letterSpacing: "0.06em",
+            color: "#C89E5A",
+            textShadow:
+              "0 2px 6px rgba(45, 30, 18, 0.30), 0 5px 14px rgba(45, 30, 18, 0.14)",
+          }}
+        >
+          {WEDDING_DATE.hero}
+        </motion.p>
+      </div>
 
       <ScrollIndicator />
     </section>

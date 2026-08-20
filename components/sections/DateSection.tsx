@@ -54,7 +54,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
       >
         {String(value).padStart(2, "0")}
       </span>
-      <span className="text-[12px] leading-none tracking-[0.14em] text-foreground-secondary uppercase">
+      <span className="max-w-full px-0.5 text-center text-[11px] leading-none tracking-[0.1em] text-foreground-secondary uppercase sm:text-[12px] sm:tracking-[0.14em]">
         {label}
       </span>
     </div>
@@ -74,10 +74,10 @@ export function DateSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-background px-5 py-10 sm:px-6">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-x-hidden bg-background px-4 py-8 sm:px-6 sm:py-10">
       <motion.div
         className="pointer-events-none absolute z-[1]"
-        style={{ top: -6, left: -8, width: "clamp(110px, 32vw, 175px)" }}
+        style={{ top: -6, left: -8, width: "clamp(88px, 28vw, 175px)" }}
         aria-hidden="true"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.72 }}
@@ -92,7 +92,7 @@ export function DateSection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-lg flex-col items-center text-center">
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-lg flex-col items-center text-center">
         <TextReveal>
           <div className="flex items-center justify-center gap-2.5">
             <Pearl size={3} />
@@ -111,14 +111,14 @@ export function DateSection() {
           transition={{ duration: reduced ? 0.2 : 1.05, ease }}
         >
           <p
-            className="font-serif leading-none text-gold"
+            className="font-serif leading-none text-gold max-w-full"
             style={{ fontSize: "clamp(90px, 27vw, 150px)", fontWeight: 400 }}
           >
             {WEDDING_DATE.day}
           </p>
 
           <p
-            className="font-serif tracking-[0.22em] text-foreground-secondary md:tracking-[0.28em]"
+            className="max-w-full px-1 font-serif tracking-[0.18em] text-foreground-secondary sm:tracking-[0.22em] md:tracking-[0.28em]"
             style={{
               marginTop: 8,
               fontSize: "clamp(28px, 8vw, 46px)",
@@ -130,7 +130,7 @@ export function DateSection() {
           </p>
 
           <p
-            className="font-serif tracking-[0.28em] text-gold/75"
+            className="max-w-full font-serif tracking-[0.28em] text-gold/75"
             style={{
               marginTop: 8,
               fontSize: "clamp(34px, 10vw, 58px)",
@@ -164,10 +164,10 @@ export function DateSection() {
         </motion.div>
 
         <motion.div
-          className="mx-auto grid w-full max-w-[340px] grid-cols-4 items-start"
+          className="mx-auto grid w-full max-w-[min(340px,100%)] grid-cols-4 items-start gap-x-1"
           style={{
             ...COUNTDOWN_GLASS,
-            padding: "22px 16px 20px",
+            padding: "clamp(16px, 4.5vw, 22px) clamp(8px, 2.8vw, 16px) 18px",
           }}
           initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

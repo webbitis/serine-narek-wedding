@@ -23,7 +23,7 @@ function WeddingContent() {
   return (
     <div className="relative min-h-[100svh] bg-[#d8c7aa]">
       {heroMounted && (
-        <main className="overflow-x-hidden bg-[#d8c7aa]">
+        <main className="overflow-x-clip bg-[#d8c7aa]">
           <HeroSection />
           <InvitationSection />
           <DateSection />

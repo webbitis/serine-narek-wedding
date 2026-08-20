@@ -9,7 +9,7 @@ export function ScrollIndicator() {
 
   return (
     <motion.div
-      className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3"
+      className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3 max-[680px]:bottom-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 3.2, duration: 1.4 }}
@@ -20,7 +20,7 @@ export function ScrollIndicator() {
         className="flex flex-col items-center gap-2"
       >
         <Pearl size={6} />
-        <span className="h-8 w-px bg-gradient-to-b from-gold/50 to-transparent" />
+        <span className="h-8 w-px bg-gradient-to-b from-gold/50 to-transparent max-[680px]:h-5" />
       </motion.div>
     </motion.div>
   );

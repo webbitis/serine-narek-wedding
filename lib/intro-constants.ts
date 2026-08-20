@@ -122,13 +122,13 @@ export const INTRO_LAYOUT = {
   dateYearLeft: "9%",
   dateSize: "clamp(125px, 34vw, 185px)",
   namesRight: "7%",
-  namesTop: "calc(52% + 6vh)",
+  namesTop: "min(calc(52% + 6vh), calc(100% - 12.5rem))",
   kickerTop: "max(7%, calc(env(safe-area-inset-top, 0px) + 1.15rem))",
   namesSize: "clamp(82px, 24vw, 205px)",
   ampersandSize: "clamp(42px, 12vw, 65px)",
   playSize: 58,
   playIconSize: 28,
-  playBottom: "6%",
+  playBottom: "max(1.25rem, calc(6% + env(safe-area-inset-bottom, 0px)))",
 } as const;
 
 export type IntroLightParticle = {

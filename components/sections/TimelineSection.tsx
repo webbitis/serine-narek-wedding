@@ -33,12 +33,13 @@ function ProgramPortrait({
   return (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden rounded-full",
+        "relative shrink-0 overflow-hidden rounded-full aspect-square",
         DAY_PROGRAM_CIRCLE,
       )}
       style={{
         border: "1px solid rgba(190, 150, 85, 0.28)",
         boxShadow: "0 10px 28px rgba(60, 40, 20, 0.10)",
+        aspectRatio: "1 / 1",
       }}
     >
       <Image
@@ -77,7 +78,7 @@ function ProgramRow({ event }: { event: DayProgramEvent }) {
       </motion.div>
 
       <motion.div
-        className="mt-[22px] flex max-w-[300px] flex-col items-center text-center"
+        className="mt-[22px] flex w-full max-w-[min(300px,100%)] flex-col items-center px-2 text-center"
         initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
@@ -87,7 +88,7 @@ function ProgramRow({ event }: { event: DayProgramEvent }) {
           ease,
         }}
       >
-        <p className="max-w-[300px] font-medium" style={DAY_PROGRAM_TYPE.venue}>
+        <p className="w-full max-w-full break-words font-medium" style={DAY_PROGRAM_TYPE.venue}>
           {event.venue}
         </p>
 
@@ -102,7 +103,7 @@ function ProgramRow({ event }: { event: DayProgramEvent }) {
             href={event.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3.5 inline-flex items-center text-[#B98C3D] transition-colors hover:text-[#A9782E]"
+            className="mt-3.5 inline-flex min-h-11 items-center text-[#B98C3D] transition-colors hover:text-[#A9782E]"
             style={DAY_PROGRAM_TYPE.mapLink}
           >
             <MapPin size={14} strokeWidth={1.5} aria-hidden="true" />
@@ -118,11 +119,11 @@ export function TimelineSection() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <section className="relative overflow-x-hidden bg-background-alt px-5 py-12 sm:px-8 md:py-16">
+    <section className="relative overflow-x-hidden bg-background-alt px-4 py-12 sm:px-8 md:py-16">
       <div className="relative z-10 mx-auto w-full max-w-[980px]">
         <div className="mb-[38px] flex flex-col items-center text-center">
           <motion.h2
-            className="font-serif"
+            className="px-2 text-center font-serif"
             style={{
               fontSize: "clamp(36px, 10vw, 58px)",
               fontWeight: 400,

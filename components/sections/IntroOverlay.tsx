@@ -60,7 +60,7 @@ export function IntroOverlay({ onPlay, onComplete }: IntroOverlayProps) {
 
   return (
     <section
-      className={`fixed inset-0 z-[200] h-[100dvh] min-h-[100dvh] max-h-[100dvh] w-full overflow-hidden overscroll-none ${
+      className={`fixed inset-0 z-[200] h-[100dvh] min-h-[100svh] w-full overflow-hidden overscroll-none ${
         opening ? "pointer-events-none" : "touch-none"
       }`}
       style={{ backgroundColor: opening ? "transparent" : "#d8c7aa" }}

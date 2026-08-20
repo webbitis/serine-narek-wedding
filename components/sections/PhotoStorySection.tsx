@@ -53,7 +53,7 @@ function StoryBlock({
     return (
       <div ref={ref} className="relative w-full py-6">
         <motion.div
-          className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4]"
+          className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] md:aspect-auto md:h-[clamp(420px,55vh,650px)]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-8%" }}
@@ -69,8 +69,7 @@ function StoryBlock({
               alt={alt}
               fill
               sizes="100vw"
-              className="object-cover"
-              style={{ objectPosition }}
+              className="object-cover [object-position:70%_center] md:object-[70%_40%]"
             />
           </motion.div>
         </motion.div>

@@ -7,7 +7,7 @@ import { WEDDING_IMAGES } from "@/lib/images";
 
 export function FinalSection() {
   return (
-    <section className="relative h-[100svh] w-full overflow-hidden">
+    <section className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden">
       <KenBurnsBackground
         src={WEDDING_IMAGES.final.src}
         alt={WEDDING_IMAGES.final.alt}
@@ -15,7 +15,7 @@ export function FinalSection() {
         overlayClassName="bg-gradient-to-t from-[#2a2218]/75 via-[#2a2218]/35 to-[#2a2218]/15"
       />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-end px-8 pb-54 pt-32 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-end px-6 pb-32 pt-24 text-center sm:px-8 sm:pb-40 md:pb-54 md:pt-32">
         <motion.p
           className="max-w-sm font-serif text-xl leading-[1.75] text-pearl/95 md:text-2xl"
           initial={{ opacity: 0, y: 20 }}

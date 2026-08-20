@@ -22,7 +22,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 3808,
     height: 5712,
     side: "left",
-    frameClass: "w-[82%] md:w-[56%] ml-0 mr-auto",
+    frameClass: "w-[82%] max-w-full md:w-[56%] ml-0 mr-auto",
     marginTop: 0,
   },
   {
@@ -31,7 +31,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 3808,
     height: 5712,
     side: "right",
-    frameClass: "w-[62%] md:w-[40%] ml-auto mr-[4%] md:mr-[6%]",
+    frameClass: "w-[62%] max-w-full md:w-[40%] ml-auto mr-[4%] md:mr-[6%]",
     marginTop: 52,
   },
   {
@@ -40,7 +40,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 4000,
     height: 6000,
     side: "left",
-    frameClass: "w-[74%] md:w-[48%] ml-[10%] md:ml-[12%] mr-auto",
+    frameClass: "w-[74%] max-w-full md:w-[48%] ml-[10%] md:ml-[12%] mr-auto",
     marginTop: 72,
   },
   {
@@ -49,7 +49,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 1080,
     height: 1620,
     side: "right",
-    frameClass: "w-[84%] md:w-[55%] ml-auto mr-[-3%] md:mr-[-1%]",
+    frameClass: "w-[84%] max-w-full md:w-[55%] ml-auto mr-0 md:mr-[-1%]",
     marginTop: 42,
   },
   {
@@ -58,7 +58,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 1440,
     height: 2160,
     side: "left",
-    frameClass: "w-[58%] md:w-[36%] ml-[5%] md:ml-[8%] mr-auto",
+    frameClass: "w-[58%] max-w-full md:w-[36%] ml-[5%] md:ml-[8%] mr-auto",
     marginTop: 76,
   },
   {
@@ -67,7 +67,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     width: 1439,
     height: 1947,
     side: "right",
-    frameClass: "w-[76%] md:w-[50%] ml-auto mr-[7%] md:mr-[10%]",
+    frameClass: "w-[76%] max-w-full md:w-[50%] ml-auto mr-[7%] md:mr-[10%]",
     marginTop: 50,
   },
 ];

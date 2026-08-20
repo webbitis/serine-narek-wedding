@@ -61,7 +61,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
 ];
 
 export const DAY_PROGRAM_CIRCLE =
-  "h-[clamp(175px,48vw,185px)] w-[clamp(175px,48vw,185px)] md:h-[230px] md:w-[230px]";
+  "aspect-square h-[clamp(175px,48vw,185px)] w-[clamp(175px,48vw,185px)] max-w-full md:h-[230px] md:w-[230px]";
 
 export const DAY_PROGRAM_ROW_GAP = "gap-y-14 md:gap-y-20";
 

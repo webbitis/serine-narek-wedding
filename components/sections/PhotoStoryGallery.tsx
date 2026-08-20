@@ -12,7 +12,7 @@ export function PhotoStoryGallery() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative w-full overflow-x-clip">
       {PHOTO_STORY_GALLERY_PHOTOS.map((photo) => {
         const fromLeft = photo.side === "left";
 
@@ -24,7 +24,7 @@ export function PhotoStoryGallery() {
             initial={
               reduced
                 ? { opacity: 1, x: 0, y: 0 }
-                : { opacity: 0, x: fromLeft ? -55 : 55, y: 20 }
+                : { opacity: 0, x: fromLeft ? -40 : 40, y: 20 }
             }
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
@@ -36,7 +36,7 @@ export function PhotoStoryGallery() {
               width={photo.width}
               height={photo.height}
               sizes="(max-width: 768px) 82vw, 648px"
-              className="h-auto w-full rounded-[4px]"
+              className="h-auto w-full max-w-full rounded-[4px] object-cover"
               style={{
                 boxShadow: "0 12px 35px rgba(50, 35, 20, 0.10)",
               }}

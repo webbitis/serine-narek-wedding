@@ -18,7 +18,7 @@ export function HeroCornerDecorations() {
   return (
     <>
       <motion.div
-        className="pointer-events-none absolute -left-[14%] -top-[5%] z-10 w-[clamp(120px,34vw,155px)] opacity-[0.88]"
+        className="pointer-events-none absolute -left-[14%] -top-[5%] z-10 w-[clamp(96px,28vw,155px)] opacity-[0.88]"
         aria-hidden="true"
         initial={reduced ? {} : { opacity: 0, scale: 0.96, y: -8 }}
         animate={{ opacity: 0.88, scale: 1, y: 0 }}
@@ -28,13 +28,12 @@ export function HeroCornerDecorations() {
           src={DECORATIONS.floralLaceCorner}
           width={320}
           height={320}
-          priority
           className="h-auto w-full"
         />
       </motion.div>
 
       <motion.div
-        className="pointer-events-none absolute -right-[20%] -top-[3%] z-10 w-[clamp(105px,30vw,140px)] -scale-x-100 opacity-[0.85]"
+        className="pointer-events-none absolute -right-[20%] -top-[3%] z-10 w-[clamp(88px,26vw,140px)] -scale-x-100 opacity-[0.85]"
         aria-hidden="true"
         initial={reduced ? {} : { opacity: 0, scale: 0.96, y: -8 }}
         animate={{ opacity: 0.85, scale: 1, y: 0 }}
@@ -44,7 +43,6 @@ export function HeroCornerDecorations() {
           src={DECORATIONS.pearlFloralGarland}
           width={480}
           height={200}
-          priority
           className="h-auto w-full"
         />
       </motion.div>

@@ -15,7 +15,7 @@ export function IntroNames({ opening }: IntroNamesProps) {
 
   return (
     <div
-      className="pointer-events-none absolute z-20 flex w-fit flex-col items-end text-right"
+      className="pointer-events-none absolute z-20 flex w-fit max-w-[86vw] flex-col items-end text-right"
       style={{
         top: INTRO_LAYOUT.namesTop,
         right: INTRO_LAYOUT.namesRight,
