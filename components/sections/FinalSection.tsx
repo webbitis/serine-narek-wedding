@@ -52,17 +52,18 @@ export function FinalSection() {
       </div>
 
       {/* ImHyur signature */}
-      <div className="imhyur-signature">
-        <span>Designed with care by</span>
+      <div className="absolute bottom-5 left-0 right-0 z-30 flex items-center justify-center gap-1.5 px-4 text-center text-[8px] tracking-[0.08em] text-white/55">
+  <span>Designed with care by</span>
 
-        <a
-          href="https://imhyur.am"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ImHyur ↗
-        </a>
-      </div>
+  <a
+    href="https://imhyur.am"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-[#e2c48d]/90 transition-colors hover:text-[#f0d7a7]"
+  >
+    ImHyur ↗
+  </a>
+</div>
     </section>
   );
 }
