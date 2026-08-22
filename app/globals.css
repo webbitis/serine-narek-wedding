@@ -145,3 +145,42 @@ button:focus-visible {
     box-shadow: 0 4px 24px rgba(183, 154, 99, 0.28);
   }
 }
+.imhyur-signature {
+  margin-top: 48px;
+  padding: 18px 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  font-size: 10px;
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  text-align: center;
+}
+
+.imhyur-signature a {
+  color: rgba(216, 184, 120, 0.9);
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.imhyur-signature a:hover {
+  color: #e2c48d;
+}
+
+@media (max-width: 700px) {
+  .imhyur-signature {
+    margin-top: 36px;
+    padding-bottom: 22px;
+
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+}

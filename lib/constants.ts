@@ -75,4 +75,4 @@ export const MAP_URLS = {
   reception: "https://maps.google.com/?q=Platinum+Hall+PLACEHOLDER",
 } as const;
 
-export const MUSIC_PATH = "/music/wedding-song.mp3";
+export const MUSIC_PATH = "/narek-serine/music/wedding-song.mp3";

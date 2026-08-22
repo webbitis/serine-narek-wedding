@@ -45,7 +45,7 @@ export function RsvpAdminDashboard() {
   const [query, setQuery] = useState("");
 
   async function loadRows() {
-    const response = await fetch("/api/rsvp", { cache: "no-store" });
+    const response = await fetch("/narek-serine/api/rsvp", { cache: "no-store" });
     if (response.status === 401) {
       setAuthenticated(false);
       return;
@@ -74,7 +74,7 @@ export function RsvpAdminDashboard() {
     setLoginError(null);
 
     try {
-      const response = await fetch("/api/admin/login", {
+      const response = await fetch("/narek-serine/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
@@ -96,7 +96,7 @@ export function RsvpAdminDashboard() {
   }
 
   async function handleLogout() {
-    await fetch("/api/admin/logout", { method: "POST" });
+    await fetch("/narek-serine/api/admin/logout", { method: "POST" });
     setAuthenticated(false);
     setRows([]);
   }

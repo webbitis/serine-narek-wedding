@@ -46,6 +46,18 @@ export function FinalSection() {
           {COUPLE.full}
         </motion.p>
       </div>
+
+      <div className="imhyur-signature">
+  <span>Designed with care by</span>
+
+  <a
+    href="https://imhyur.am"
+    target="_blank"
+    rel="noreferrer"
+  >
+    ImHyur ↗
+  </a>
+</div>
     </section>
   );
 }

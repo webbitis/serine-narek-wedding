@@ -1,16 +1,16 @@
 export const WEDDING_IMAGES = {
   hero: {
-    src: "/images/first.jpeg",
+    src: "/narek-serine/images/first.jpeg",
     alt: "Նարեկ և Սերինե",
     objectPosition: "center center",
   },
   invitation: {
-    src: "/images/dance.png",
+    src: "/narek-serine/images/dance.png",
     alt: "Նարեկ և Սերինե",
     objectPosition: "center 30%",
   },
   final: {
-    src: "/images/last.jpeg",
+    src: "/narek-serine/images/last.jpeg",
     alt: "Նարեկ և Սերինե",
     objectPosition: "center 36%",
   },
@@ -25,7 +25,7 @@ export type PhotoStoryAnimation = "fade-scale" | "masked-reveal" | "parallax" | 
 
 export const PHOTO_STORY = [
   {
-    src: "/images/hands.jpg",
+    src: "/narek-serine/images/hands.jpg",
     alt: "Երկու ճանապարհ",
     text: "Երկու ճանապարհ՝ մեկ պատմության",
     layout: "full-bleed" as PhotoStoryLayout,
@@ -33,7 +33,7 @@ export const PHOTO_STORY = [
     animation: "fade-scale" as PhotoStoryAnimation,
   },
   {
-    src: "/images/horse_hug.jpg",
+    src: "/narek-serine/images/horse_hug.jpg",
     alt: "Մեկ որոշում",
     text: "Մեկ որոշում՝ մի ամբողջ կյանք",
     layout: "background-text" as PhotoStoryLayout,

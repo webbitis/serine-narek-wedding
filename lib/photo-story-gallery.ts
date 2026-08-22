@@ -17,7 +17,7 @@ export type GalleryPhoto = {
  */
 export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
   {
-    src: "/images/1.jpeg",
+    src: "/narek-serine/images/1.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 3808,
     height: 5712,
@@ -26,7 +26,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     marginTop: 0,
   },
   {
-    src: "/images/2.jpeg",
+    src: "/narek-serine/images/2.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 3808,
     height: 5712,
@@ -35,7 +35,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     marginTop: 8,
   },
   {
-    src: "/images/3.jpeg",
+    src: "/narek-serine/images/3.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 4000,
     height: 6000,
@@ -44,7 +44,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     marginTop: 6,
   },
   {
-    src: "/images/4.jpeg",
+    src: "/narek-serine/images/4.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 1080,
     height: 1620,
@@ -53,7 +53,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     marginTop: -4,
   },
   {
-    src: "/images/5.jpeg",
+    src: "/narek-serine/images/5.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 1440,
     height: 2160,
@@ -62,7 +62,7 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     marginTop: 10,
   },
   {
-    src: "/images/6.jpeg",
+    src: "/narek-serine/images/6.jpeg",
     alt: "Նարեկ և Սերինե",
     width: 1439,
     height: 1947,

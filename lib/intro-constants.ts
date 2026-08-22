@@ -1,6 +1,6 @@
 /** Intro background artwork — fixed dimensions for Next.js Image */
 export const INTRO_BACKGROUND = {
-  src: "/images/first.jpeg",
+  src: "/narek-serine/images/first.jpeg",
   width: 852,
   height: 1846,
   objectPosition: "center center",

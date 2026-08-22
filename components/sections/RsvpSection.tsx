@@ -67,7 +67,7 @@ export function RsvpSection() {
     setError(null);
 
     try {
-      const response = await fetch("/api/rsvp", {
+      const response = await fetch("/narek-serine/api/rsvp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

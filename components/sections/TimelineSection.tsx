@@ -17,7 +17,7 @@ import { usePrefersReducedMotion } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const FALLBACK_IMAGE = "/images/couple.jpg";
+const FALLBACK_IMAGE = "/narek-serine/images/couple.jpg";
 
 function ProgramPortrait({
   src,
