@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+
 import { KenBurnsBackground } from "@/components/decorations/KenBurnsBackground";
 import { COUPLE } from "@/lib/constants";
 import { WEDDING_IMAGES } from "@/lib/images";
@@ -21,7 +22,10 @@ export function FinalSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 1.4,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           Սիրով սպասում ենք Ձեզ
         </motion.p>
@@ -47,17 +51,18 @@ export function FinalSection() {
         </motion.p>
       </div>
 
+      {/* ImHyur signature */}
       <div className="imhyur-signature">
-  <span>Designed with care by</span>
+        <span>Designed with care by</span>
 
-  <a
-    href="https://imhyur.am"
-    target="_blank"
-    rel="noreferrer"
-  >
-    ImHyur ↗
-  </a>
-</div>
+        <a
+          href="https://imhyur.am"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ImHyur ↗
+        </a>
+      </div>
     </section>
   );
 }
