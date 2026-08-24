@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 
 import { KenBurnsBackground } from "@/components/decorations/KenBurnsBackground";
 import { COUPLE } from "@/lib/constants";
-import { WEDDING_IMAGES } from "@/lib/images";
+import { WEDDING_IMAGES, WEDDING_VIDEOS } from "@/lib/images";
 
 export function FinalSection() {
   return (
     <section className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden">
       <KenBurnsBackground
-        src={WEDDING_IMAGES.final.src}
+        src={WEDDING_VIDEOS.final}
         alt={WEDDING_IMAGES.final.alt}
         objectPosition={WEDDING_IMAGES.final.objectPosition}
+        media="video"
         overlayClassName="bg-gradient-to-t from-[#2a2218]/75 via-[#2a2218]/35 to-[#2a2218]/15"
       />
 

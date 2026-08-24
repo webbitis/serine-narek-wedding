@@ -27,7 +27,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
   },
   {
     id: "bride-home",
-    venue: "գ․ Վարդնիկ",
+    venue: "գ․ Վարդենիկ",
     eventType: "Հարսի տուն",
     image: "/narek-serine/images/bride.png",
     objectPosition: "52% 58%",

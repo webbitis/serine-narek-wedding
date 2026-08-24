@@ -1,3 +1,8 @@
+export const WEDDING_VIDEOS = {
+  hero: "/narek-serine/videos/hero-video.mp4",
+  final: "/narek-serine/videos/final-video.mp4",
+} as const;
+
 export const WEDDING_IMAGES = {
   hero: {
     src: "/narek-serine/images/first.jpeg",

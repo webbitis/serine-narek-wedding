@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { usePrefersReducedMotion } from "@/lib/motion";
 
 type KenBurnsBackgroundProps = {
@@ -12,6 +13,7 @@ type KenBurnsBackgroundProps = {
   priority?: boolean;
   className?: string;
   overlayClassName?: string;
+  media?: "image" | "video";
 };
 
 export function KenBurnsBackground({
@@ -21,6 +23,7 @@ export function KenBurnsBackground({
   priority = false,
   className = "",
   overlayClassName = "bg-gradient-to-b from-[#2a2218]/30 via-[#2a2218]/15 to-[#2a2218]/55",
+  media = "image",
 }: KenBurnsBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -39,15 +42,19 @@ export function KenBurnsBackground({
         transition={{ duration: 12, ease: [0.22, 1, 0.36, 1] }}
         style={reduced ? {} : { scale }}
       >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          priority={priority}
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition }}
-        />
+        {media === "video" ? (
+          <BackgroundVideo src={src} objectPosition={objectPosition} />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition }}
+          />
+        )}
       </motion.div>
       <div className={`absolute inset-0 ${overlayClassName}`} />
     </div>

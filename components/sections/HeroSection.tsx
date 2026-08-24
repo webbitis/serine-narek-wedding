@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { WEDDING_IMAGES } from "@/lib/images";
+import { WEDDING_VIDEOS } from "@/lib/images";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { HeroCornerDecorations } from "@/components/sections/hero/HeroCornerDecorations";
 import { HeroDriftingPetals } from "@/components/sections/hero/HeroDriftingPetals";
@@ -36,13 +36,9 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.65, ease: "easeOut" }}
         >
-          <Image
-            src={WEDDING_IMAGES.hero.src}
-            alt={WEDDING_IMAGES.hero.alt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center md:object-[center_32%]"
+          <BackgroundVideo
+            src={WEDDING_VIDEOS.hero}
+            className="object-center md:object-[center_32%]"
           />
         </motion.div>
       </motion.div>
