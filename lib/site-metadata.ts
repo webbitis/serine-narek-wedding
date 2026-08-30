@@ -6,7 +6,7 @@ export const SITE_ORIGIN = "https://imhyur.am";
 
 export const SITE_URL = "https://imhyur.am/narek-serine";
 
-export const OG_IMAGE_URL = `https://imhyur.am${INTRO_BACKGROUND.src}`;
+export const OG_IMAGE_URL = "https://imhyur.am/narek-serine/images/first.jpeg";
 
 /** Real pixel size of the intro image */
 export const OG_IMAGE_WIDTH = 852;
