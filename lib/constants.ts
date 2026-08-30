@@ -72,7 +72,7 @@ export const TIMELINE_PHRASES: Record<string, string> = {
 export const MAP_URLS = {
   ceremony:
     "https://maps.google.com/?q=Oshakan+Saint+Mesrop+Mashtots+Church+PLACEHOLDER",
-  reception: "https://maps.google.com/?q=Platinum+Hall+PLACEHOLDER",
+  reception: "https://maps.app.goo.gl/KjWiCjQtKzqSBw6U6",
 } as const;
 
 export const MUSIC_PATH = "/narek-serine/music/wedding-song.mp3";
