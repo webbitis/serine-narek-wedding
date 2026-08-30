@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "re
 import { motion } from "framer-motion";
 import { useMusic } from "@/components/providers/MusicProvider";
 import { COUPLE, WEDDING_DATE } from "@/lib/constants";
-import { INTRO_HERO_CROSSFADE_S } from "@/lib/intro-constants";
+import { INTRO_BACKGROUND, INTRO_HERO_CROSSFADE_S } from "@/lib/intro-constants";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { IntroBackground } from "./intro/IntroBackground";
 import { IntroCircleCTA } from "./intro/IntroCircleCTA";
@@ -77,7 +77,15 @@ export function IntroOverlay({
       className={`fixed inset-0 z-[200] h-[100dvh] min-h-[100svh] w-full overflow-hidden overscroll-none ${
         opening ? "pointer-events-none" : "cursor-pointer touch-none"
       }`}
-      style={{ backgroundColor: revealHero ? "transparent" : "#d8c7aa" }}
+      style={{
+        backgroundColor: revealHero ? "transparent" : "#d8c7aa",
+        backgroundImage: revealHero
+          ? "none"
+          : `url("${INTRO_BACKGROUND.src}")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 22%",
+        backgroundRepeat: "no-repeat",
+      }}
       aria-label={`${COUPLE.full}, ${WEDDING_DATE.display}`}
       initial={false}
       animate={{ opacity: revealHero ? 0 : 1 }}

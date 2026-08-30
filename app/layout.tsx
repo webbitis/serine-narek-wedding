@@ -5,6 +5,7 @@ import {
   Noto_Sans_Armenian,
   Noto_Serif_Armenian,
 } from "next/font/google";
+import { INTRO_BACKGROUND } from "@/lib/intro-constants";
 import "./globals.css";
 
 const notoSerifArmenian = Noto_Serif_Armenian({
@@ -59,6 +60,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="hy"
       className={`${notoSerifArmenian.variable} ${notoSansArmenian.variable} ${italianno.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={INTRO_BACKGROUND.src}
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-full overflow-x-hidden bg-background text-foreground">
         {children}
       </body>

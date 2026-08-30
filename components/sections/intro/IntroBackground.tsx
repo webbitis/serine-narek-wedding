@@ -39,10 +39,13 @@ export function IntroBackground({ opening = false }: IntroBackgroundProps) {
           alt=""
           fill
           priority
+          fetchPriority="high"
+          loading="eager"
+          unoptimized
           draggable={false}
           sizes="100vw"
           className="select-none object-cover"
-          style={{ objectPosition: "center 22%", opacity: 1 }}
+          style={{ objectFit: "cover", objectPosition: "center 22%", opacity: 1 }}
         />
       </motion.div>
 
