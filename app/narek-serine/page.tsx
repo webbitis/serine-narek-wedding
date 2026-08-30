@@ -1,17 +1,7 @@
-import type { Metadata } from "next";
 import { WeddingPage } from "@/components/WeddingPage";
+import { weddingMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Նարեկ & Սերինե | Հրավեր",
-  description:
-    "Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենակարևոր օրվան — 10 Հոկտեմբերի 2026",
-  openGraph: {
-    title: "Նարեկ & Սերինե | Հրավեր",
-    description: "10 · 10 · 2026",
-    locale: "hy_AM",
-    type: "website",
-  },
-};
+export const metadata = weddingMetadata;
 
 export default function NarekSerineInvitationPage() {
   return <WeddingPage />;

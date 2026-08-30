@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import {
   Instrument_Serif,
   Italianno,
@@ -6,6 +6,7 @@ import {
   Noto_Serif_Armenian,
 } from "next/font/google";
 import { INTRO_BACKGROUND } from "@/lib/intro-constants";
+import { weddingMetadata } from "@/lib/site-metadata";
 import "./globals.css";
 
 const notoSerifArmenian = Noto_Serif_Armenian({
@@ -36,17 +37,7 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Նարեկ & Սերինե | Հրավեր",
-  description:
-    "Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենակարևոր օրվան — 10 Հոկտեմբերի 2026",
-  openGraph: {
-    title: "Նարեկ & Սերինե | Հրավեր",
-    description: "10 · 10 · 2026",
-    locale: "hy_AM",
-    type: "website",
-  },
-};
+export const metadata = weddingMetadata;
 
 export const viewport: Viewport = {
   width: "device-width",
