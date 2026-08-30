@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { INTRO_BACKGROUND } from "@/lib/intro-constants";
 
 export const SITE_ORIGIN = "https://imhyur.am";
 export const SITE_URL = "https://imhyur.am/narek-serine";
-export const OG_IMAGE_URL = "https://imhyur.am/narek-serine/og-image.jpg";
+export const OG_IMAGE_URL = `https://imhyur.am${INTRO_BACKGROUND.src}`;
 
 export const weddingMetadata: Metadata = {
   title: "Նարեկ & Սերինե | Հրավեր",
@@ -16,8 +17,8 @@ export const weddingMetadata: Metadata = {
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
+        width: INTRO_BACKGROUND.width,
+        height: INTRO_BACKGROUND.height,
         alt: "Նարեկ & Սերինե",
         type: "image/jpeg",
       },
