@@ -5,6 +5,10 @@ export const SITE_ORIGIN = "https://imhyur.am";
 export const SITE_URL = "https://imhyur.am/narek-serine";
 export const OG_IMAGE_URL = `https://imhyur.am${INTRO_BACKGROUND.src}`;
 
+/** Real pixel size of public/images/first.jpeg (do not invent OG crops). */
+export const OG_IMAGE_WIDTH = 3807;
+export const OG_IMAGE_HEIGHT = 5711;
+
 export const weddingMetadata: Metadata = {
   title: "Նարեկ & Սերինե | Հրավեր",
   description: "10 · 10 · 2026",
@@ -17,8 +21,8 @@ export const weddingMetadata: Metadata = {
     images: [
       {
         url: OG_IMAGE_URL,
-        width: INTRO_BACKGROUND.width,
-        height: INTRO_BACKGROUND.height,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
         alt: "Նարեկ & Սերինե",
         type: "image/jpeg",
       },
