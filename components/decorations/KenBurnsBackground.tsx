@@ -14,6 +14,7 @@ type KenBurnsBackgroundProps = {
   className?: string;
   overlayClassName?: string;
   media?: "image" | "video";
+  poster?: string;
 };
 
 export function KenBurnsBackground({
@@ -24,6 +25,7 @@ export function KenBurnsBackground({
   className = "",
   overlayClassName = "bg-gradient-to-b from-[#2a2218]/30 via-[#2a2218]/15 to-[#2a2218]/55",
   media = "image",
+  poster,
 }: KenBurnsBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -34,16 +36,34 @@ export function KenBurnsBackground({
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
 
   return (
-    <div ref={ref} className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div ref={ref} className={`absolute inset-0 overflow-hidden bg-[#d8c7aa] ${className}`}>
       <motion.div
-        className="relative h-full w-full"
+        className="relative h-full w-full bg-[#d8c7aa]"
         initial={reduced ? {} : { scale: 1.12 }}
         animate={{ scale: 1 }}
         transition={{ duration: 12, ease: [0.22, 1, 0.36, 1] }}
         style={reduced ? {} : { scale }}
       >
         {media === "video" ? (
-          <BackgroundVideo src={src} objectPosition={objectPosition} />
+          <>
+            {poster ? (
+              <Image
+                src={poster}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover"
+                style={{ objectPosition }}
+                aria-hidden="true"
+              />
+            ) : null}
+            <BackgroundVideo
+              src={src}
+              poster={poster}
+              objectPosition={objectPosition}
+              fallbackColor="#d8c7aa"
+            />
+          </>
         ) : (
           <Image
             src={src}

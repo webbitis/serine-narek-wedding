@@ -11,6 +11,7 @@ type BackgroundVideoProps = {
   poster?: string;
   onCanPlay?: () => void;
   visible?: boolean;
+  fallbackColor?: string;
 };
 
 export function BackgroundVideo({
@@ -20,6 +21,7 @@ export function BackgroundVideo({
   poster,
   onCanPlay,
   visible = true,
+  fallbackColor,
 }: BackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const onCanPlayRef = useRef(onCanPlay);
@@ -57,6 +59,7 @@ export function BackgroundVideo({
         objectPosition,
         opacity: visible ? 1 : 0,
         transition: `opacity ${INTRO_HERO_CROSSFADE_S}s ease`,
+        backgroundColor: fallbackColor,
       }}
     >
       <source src={src} type="video/mp4" />

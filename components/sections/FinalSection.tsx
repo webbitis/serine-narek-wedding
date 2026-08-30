@@ -8,11 +8,12 @@ import { WEDDING_IMAGES, WEDDING_VIDEOS } from "@/lib/images";
 
 export function FinalSection() {
   return (
-    <section className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden">
+    <section className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden bg-[#d8c7aa]">
       <KenBurnsBackground
         src={WEDDING_VIDEOS.final}
         alt={WEDDING_IMAGES.final.alt}
         objectPosition={WEDDING_IMAGES.final.objectPosition}
+        poster={WEDDING_IMAGES.final.src}
         media="video"
         overlayClassName="bg-gradient-to-t from-[#2a2218]/75 via-[#2a2218]/35 to-[#2a2218]/15"
       />
