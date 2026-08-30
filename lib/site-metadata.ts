@@ -6,12 +6,12 @@ export const SITE_ORIGIN = "https://imhyur.am";
 
 export const SITE_URL = "https://imhyur.am/narek-serine";
 
-export const OG_IMAGE_URL = "https://imhyur.am/narek-serine/images/first.jpeg";
+export const OG_IMAGE_URL = "https://imhyur.am/narek-serine/og-image.jpg";
 
 /** Real pixel size of the intro image */
-export const OG_IMAGE_WIDTH = 852;
+export const OG_IMAGE_WIDTH = 1200;
 
-export const OG_IMAGE_HEIGHT = 1846;
+export const OG_IMAGE_HEIGHT = 630;
 
 export const weddingMetadata: Metadata = {
   title: "Նարեկ & Սերինե | Հրավեր",
