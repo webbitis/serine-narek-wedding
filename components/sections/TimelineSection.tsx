@@ -88,8 +88,8 @@ function ProgramRow({ event }: { event: DayProgramEvent }) {
           ease,
         }}
       >
-        <p className="w-full max-w-full break-words font-medium" style={DAY_PROGRAM_TYPE.venue}>
-          {event.venue}
+        <p className="font-serif" style={DAY_PROGRAM_TYPE.time}>
+          {event.time}
         </p>
 
         {event.eventType ? (
@@ -97,6 +97,10 @@ function ProgramRow({ event }: { event: DayProgramEvent }) {
             {event.eventType}
           </p>
         ) : null}
+
+        <p className="mt-2 w-full max-w-full break-words" style={DAY_PROGRAM_TYPE.venue}>
+          {event.venue}
+        </p>
 
         {event.mapUrl ? (
           <a

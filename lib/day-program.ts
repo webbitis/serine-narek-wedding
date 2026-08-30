@@ -4,6 +4,7 @@ export type DayProgramSide = "left" | "right";
 
 export type DayProgramEvent = {
   id: string;
+  time: string;
   venue: string;
   eventType?: string;
   image: string;
@@ -14,11 +15,12 @@ export type DayProgramEvent = {
 
 /**
  * Day-of program for “Օրվա ծրագիրը”.
- * Shared hierarchy: venue (WHERE) → eventType (WHAT) → mapUrl (HOW).
+ * Shared hierarchy: time → eventType (WHAT) → venue (WHERE) → mapUrl (HOW).
  */
 export const DAY_PROGRAM: DayProgramEvent[] = [
   {
     id: "groom-home",
+    time: "08:00",
     venue: "գ․ Օշական",
     eventType: "Փեսայի տուն",
     image: "/narek-serine/images/bridegroom.png",
@@ -27,6 +29,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
   },
   {
     id: "bride-home",
+    time: "10:30",
     venue: "գ․ Վարդենիկ",
     eventType: "Հարսի տուն",
     image: "/narek-serine/images/bride.png",
@@ -35,6 +38,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
   },
   {
     id: "church",
+    time: "15:00",
     venue: "Օշականի Սուրբ Մեսրոպ Մաշտոց եկեղեցի",
     eventType: "Պսակադրություն",
     mapUrl: MAP_URLS.ceremony,
@@ -43,6 +47,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
   },
   {
     id: "groom-home-return",
+    time: "16:30",
     venue: "գ․ Օշական",
     eventType: "Փեսայի տուն",
     image: "/narek-serine/images/bridegroom.png",
@@ -51,6 +56,7 @@ export const DAY_PROGRAM: DayProgramEvent[] = [
   },
   {
     id: "reception",
+    time: "18:00",
     venue: "Platinum Hall",
     eventType: "Հարսանյաց հանդիսություն",
     mapUrl: MAP_URLS.reception,
@@ -66,14 +72,21 @@ export const DAY_PROGRAM_CIRCLE =
 export const DAY_PROGRAM_ROW_GAP = "gap-y-14 md:gap-y-20";
 
 export const DAY_PROGRAM_TYPE = {
-  venue: {
-    fontSize: "clamp(22px, 5.8vw, 24px)",
+  time: {
+    fontSize: "clamp(22px, 5.8vw, 26px)",
     fontWeight: 500,
-    lineHeight: 1.3,
+    lineHeight: 1.2,
+    letterSpacing: "0.06em",
     color: "#C6A15B",
   },
-  eventType: {
+  venue: {
     fontSize: "clamp(16px, 4.4vw, 18px)",
+    fontWeight: 400,
+    lineHeight: 1.3,
+    color: "#6F5A49",
+  },
+  eventType: {
+    fontSize: "clamp(18px, 5vw, 20px)",
     fontWeight: 400,
     color: "#6F5A49",
   },
