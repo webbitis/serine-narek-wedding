@@ -70,4 +70,4 @@ export const PHOTO_STORY_GALLERY_PHOTOS: GalleryPhoto[] = [
     frameClass: "w-[88%] max-w-full md:w-[62%] ml-auto mr-[4%] md:mr-[7%]",
     marginTop: -6,
   },
-];
+]

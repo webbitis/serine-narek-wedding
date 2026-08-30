@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { INTRO_BACKGROUND, INTRO_PHOTO_REVEAL_DURATION } from "@/lib/intro-constants";
-import { usePrefersReducedMotion } from "@/lib/motion";
 
 type IntroBackgroundProps = {
   opening?: boolean;
@@ -15,17 +14,14 @@ const PHOTO_VEIL = "saturate(0.65) contrast(0.90) brightness(1.08)";
 const PHOTO_CLEAR = "saturate(1) contrast(1) brightness(1)";
 
 export function IntroBackground({ opening = false }: IntroBackgroundProps) {
-  const reduced = usePrefersReducedMotion();
-
   return (
     <motion.div
       className="pointer-events-none absolute inset-0 z-0"
       aria-hidden="true"
       initial={false}
-      animate={{ opacity: opening && !reduced ? 0 : 1 }}
+      animate={{ opacity: 1 }}
       transition={{
-        duration: opening && !reduced ? 1.2 : 0,
-        delay: opening && !reduced ? INTRO_PHOTO_REVEAL_DURATION : 0,
+        duration: 0,
         ease,
       }}
     >

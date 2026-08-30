@@ -15,32 +15,44 @@ import { TimelineSection } from "@/components/sections/TimelineSection";
 
 function WeddingContent() {
   const [introVisible, setIntroVisible] = useState(true);
-  const [heroMounted, setHeroMounted] = useState(false);
+  const [opened, setOpened] = useState(false);
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
 
-  const handleIntroPlay = useCallback(() => setHeroMounted(true), []);
+  const handleIntroPlay = useCallback(() => setOpened(true), []);
+  const handleVideoReady = useCallback(() => setHeroVideoReady(true), []);
   const handleIntroComplete = useCallback(() => setIntroVisible(false), []);
 
   return (
     <div className="relative min-h-[100svh] bg-[#d8c7aa]">
-      {heroMounted && (
-        <main className="overflow-x-clip bg-[#d8c7aa]">
-          <HeroSection />
-          <InvitationSection />
-          <DateSection />
+      <main className="overflow-x-clip bg-[#d8c7aa]">
+        <HeroSection
+          opened={opened}
+          videoReady={heroVideoReady}
+          onVideoReady={handleVideoReady}
+        />
+        {opened ? (
+          <>
+            <InvitationSection />
+            <DateSection />
 
-          <PhotoStoryBlock index={0} />
+            <PhotoStoryBlock index={0} />
 
-          <GoldDivider variant="thin" />
-          <TimelineSection />
+            <GoldDivider variant="thin" />
+            <TimelineSection />
 
-          <PhotoStoryBlock index={1} />
+            <PhotoStoryBlock index={1} />
 
-          <RsvpSection />
-          <FinalSection />
-        </main>
-      )}
+            <RsvpSection />
+            <FinalSection />
+          </>
+        ) : null}
+      </main>
       {introVisible && (
-        <IntroOverlay onPlay={handleIntroPlay} onComplete={handleIntroComplete} />
+        <IntroOverlay
+          onPlay={handleIntroPlay}
+          onComplete={handleIntroComplete}
+          heroVideoReady={heroVideoReady}
+        />
       )}
       {!introVisible && <MusicControl />}
     </div>

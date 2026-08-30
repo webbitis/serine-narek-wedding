@@ -104,6 +104,7 @@ export const INTRO_BUTTERFLIES: IntroButterflyConfig[] = [
 export const INTRO_OPEN_DURATION_MS = 3600;
 export const INTRO_OPEN_DURATION_REDUCED_MS = 800;
 export const INTRO_PHOTO_REVEAL_DURATION = 1.8;
+export const INTRO_HERO_CROSSFADE_S = 0.75;
 
 export const INTRO_DISPLAY_NAMES = {
   first: "Narek",

@@ -4,12 +4,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { WEDDING_VIDEOS } from "@/lib/images";
+import { WEDDING_IMAGES, WEDDING_VIDEOS } from "@/lib/images";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { HeroCornerDecorations } from "@/components/sections/hero/HeroCornerDecorations";
 import { HeroDriftingPetals } from "@/components/sections/hero/HeroDriftingPetals";
 
-export function HeroSection() {
+type HeroSectionProps = {
+  opened?: boolean;
+  videoReady?: boolean;
+  onVideoReady?: () => void;
+};
+
+export function HeroSection({
+  opened = true,
+  videoReady = true,
+  onVideoReady,
+}: HeroSectionProps) {
   const ref = useRef<HTMLElement>(null);
   const reduced = usePrefersReducedMotion();
 
@@ -38,14 +48,23 @@ export function HeroSection() {
         >
           <BackgroundVideo
             src={WEDDING_VIDEOS.hero}
+            poster={WEDDING_IMAGES.hero.src}
+            onCanPlay={onVideoReady}
+            visible={opened && videoReady}
             className="object-center md:object-[center_32%]"
           />
         </motion.div>
       </motion.div>
 
-      <HeroCornerDecorations />
-      <HeroDriftingPetals />
+      {opened ? (
+        <>
+          <HeroCornerDecorations />
+          <HeroDriftingPetals />
+        </>
+      ) : null}
 
+      {opened ? (
+        <>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 z-[15] h-[280px] w-[min(88%,420px)]"
@@ -107,6 +126,8 @@ export function HeroSection() {
       </div>
 
       <ScrollIndicator />
+      </>
+      ) : null}
     </section>
   );
 }
