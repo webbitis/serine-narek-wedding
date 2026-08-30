@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ImHyur">
+  <rect width="32" height="32" rx="7" fill="#B38A4C"/>
+  <text
+    x="16.2"
+    y="22.2"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="15.5"
+    font-weight="700"
+    fill="#FBF8F2"
+    letter-spacing="-0.8"
+  >Im</text>
+</svg>
